@@ -1,0 +1,17 @@
+{
+  "name": "yogibuild",
+  "version": "0.0.1",
+  "description": "Yoga Sequence Builder",
+  "dependencies": {
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-mocha": "^1.0.2",
+    "grunt-contrib-clean": "^1.0.0"
+  },
+  "devDependencies": {},
+  "author": "Noelle Knight",
+  "license": "MIT"
+}
