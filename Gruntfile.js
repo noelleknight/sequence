@@ -13,7 +13,7 @@ module.exports = function(grunt) {
         sass: {               // task name
             project: {        // target name
                 files: {
-                    'build/css/main.css': 'src/scss/main.scss'
+                    'client/css/main.css': 'src/scss/main.scss'
                 }
             }
         },
@@ -91,7 +91,6 @@ module.exports = function(grunt) {
           //   type: 'text-summary'
           // }
         });
-    };
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-sass');
