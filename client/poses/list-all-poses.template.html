@@ -1,10 +1,11 @@
 <ul class="list-group poseList">
-  <li class="list-group-item allPosts" ng-repeat="pose in poses.poseList">{{pose.name}}
-    
-    <p>{{pose.sanskrit}}</p>
-    <p>Type: {{pose.type}}</P>
-    <p>Body Focus: {{pose.bodyFocus}}</P>
-    <p>Difficulty: {{pose.difficulty}}</P>
-
+  <li class="list-group-item allPosts" ng-repeat="pose in poses.poseList">
+    <h2 ng-click="pose.showDetails = !pose.showDetails">{{pose.name}}</h2>
+      <div class="pose-details" ng-show="pose.showDetails">
+        <p>{{pose.sanskrit}}</p>
+        <p>Type: {{pose.type}}</P>
+        <p>Body Focus: {{pose.bodyFocus}}</P>
+        <p>Difficulty: {{pose.difficulty}}</P>
+      </div>
   </li>
 </ul>
