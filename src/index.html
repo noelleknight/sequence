@@ -6,7 +6,7 @@
 
   <meta name='description' content='Yoga Sequence Builder'>
   <meta name='author' content='Noelle Knight'>
-  <link rel='stylesheet' type='text/css' href='client/css/main.css'>
+  <link rel='stylesheet' type='text/css' href='css/main.css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -17,9 +17,13 @@
     <div class="page-header">
     <h1>Example page header <small>Subtext for header</small></h1>
   </div>
-</header>
+  <nav  class="nav-container">
+          <ul class="nav nav-pills pull-left">
+            <li><a ui-sref='home'>Home</a></li>
+            <li><a ui-sref='createPose'>Create a Pose</a></li>
+          </ul>
 
-  <h1 class="text-danger"> Hello World! </h1>
+</header>
 
   <section ui-view class="main-section"></section>
 
@@ -29,7 +33,7 @@
   <script src='https://angular-ui.github.io/ui-router/release/angular-ui-router.js'></script>
   <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
   <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
-  <script src="client/js/app.js"></script>
+  <script src="js/app.js"></script>
 
 </body>
 </html>

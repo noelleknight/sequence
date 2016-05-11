@@ -11,6 +11,17 @@
 
     $urlRouterProvider.otherwise('/');
 
+    $stateProvider
+    .state('home', {
+      url: '/'
+    })
+    .state('createPose', {
+      url: '/create-pose',
+      templateUrl: 'poses/create-pose.template.html',
+      controller: 'CreatePoseController',
+      controllerAs: 'pose'
+    });
+
 
   }
 
