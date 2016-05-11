@@ -1,1 +1,1 @@
-The yogiBuild application was created to help yoga practitioners and teachers build sequences they can use and store. This application was created using the AngularJS framework and the Firebase tool for the backend data.
+The yogiBuild application was designed to help yoga practitioners and teachers build sequences they can use and store. This application was created using the AngularJS framework and the Firebase tool for the backend data.
