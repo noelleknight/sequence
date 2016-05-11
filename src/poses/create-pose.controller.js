@@ -8,6 +8,8 @@
     CreatePoseController.$inject = ['PoseService'];
     function CreatePoseController(PoseService) {
       console.log('in PoseController');
+      console.log("This is the array", PoseService.poseList);
+
 
       var that = this;
       this.newPose = null;
@@ -17,6 +19,7 @@
         console.log(that.newPose);
         PoseService.createPose(that.newPose);
       };
+
 
 
 

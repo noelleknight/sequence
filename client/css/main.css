@@ -17,4 +17,8 @@ header {
   width: 50%;
   margin: 5em; }
 
+.list-group {
+  position: absolute;
+  top: 20%; }
+
 /*# sourceMappingURL=main.css.map */
