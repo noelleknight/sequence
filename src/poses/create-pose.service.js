@@ -9,15 +9,19 @@
 
   function PoseService ($firebaseArray) {
     var poses = new Firebase ('https://yogibuild.firebaseio.com/poses');
-    // var poseList = $firebaseArray(poses);
+    var poseList = $firebaseArray(poses);
 
     return {
-      createPose: createPose //,
-      // poseList: poseList
+      createPose: createPose,
+      poseList: poseList
     };
 
     function createPose(newPose) {
-      // $firebaseArray(poses).$add(newPose);
+      if (typeof newPose === "object"){
+        return $firebaseArray(poses).$add(newPose);
+      } else {
+        return null;
+      }
     }
   }
 

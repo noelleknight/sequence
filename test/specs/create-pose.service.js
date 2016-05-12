@@ -18,8 +18,9 @@
       $httpBackend
         .whenPOST('https://yogibuild.firebaseio.com/poses')
         .respond(
-          {bodyFocus:"Total", difficulty:"3", name:"Corpse Pose", sanskrit:"Savasana", tag:"Cool-Down", type: "Restorative"},
-          {bodyFocus:"Total", difficulty:"3", name:"Corpse Pose", sanskrit:"Savasana", tag:"Cool-Down", type: "Restorative"});
+          {"bodyFocus":"w","difficulty":"w","name":"foobar","sanskrit":"ew","tag":"f","type":"w"}
+        );
+          // {bodyFocus:"Total", difficulty:"3", name:"Corpse Pose", sanskrit:"Savasana", tag:"Cool-Down", type: "Restorative"});
 
     }));
 
@@ -27,25 +28,36 @@
       assert.strictEqual(1,1,'identiy function');
     });
 
-    // test('new pose works', function (){
-    //   var tester = PoseService.createPose( ({bodyFocus:"Total", difficulty:"3", name:"Corpse Pose", sanskrit:"Savasana", tag:"Cool-Down", type: "Restorative"},
-              // {bodyFocus:"Total", difficulty:"3", name:"Corpse Pose", sanskrit:"Savasana", tag:"Cool-Down", type: "Restorative"}) );
+    test('create pose works', function (){
+      var p = PoseService.createPose({
+        name:'lunge', type: 'active'
+      });
 
-    //
-    //   assert.ok(tester.then, 'test does return a promise');
-    //
-    //   tester
-    //     .then(function (response) {
-    //       assert.strictEqual(response.id, 12345, 'the data returning is correct');
-    //       doneCallback();
-    //     })
-    //     .catch(function () {
-    //       assert.ok(false, 'the data is returning an error and that is not ok');
-    //       doneCallback();
-    //     });
-    //     $httpBackend.flush();
-    // });
+      assert.ok(p, 'the function returns an object');
+      assert.strictEqual(typeof p.then, 'function', 'the object returned is a promise');
 
+      // we're not testing the return data since it's mocked out above
+      // Instead, we just test for the existence of a promise
+      // $httpBackend.flush();
+
+    });
+
+    test('create pose fails with no data', function() {
+      var returnValue = PoseService.createPose();
+
+      assert.strictEqual(returnValue, null,'With no data function returns null');
+
+
+    });
+
+    test('poseList returns poses array', function() {
+      var poseArray = PoseService.poseList;
+        assert.isArray(poseArray,'This is the pose array');
+
+    });
+        // $httpBackend.flush();
   });
+
+  // });
 
 })();
