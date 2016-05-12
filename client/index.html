@@ -15,11 +15,21 @@
 
   <header>
     <div class="page-header">
-      <h1>Example page header <small>Subtext for header</small></h1>
-    </div>
-  </header>
+    <h1>
+      <!-- Example page header  -->
+      <small>
+        <!-- Subtext for header -->
+      </small></h1>
+  </div>
+  <nav  class="nav-container">
+          <ul class="nav nav-pills pull-left">
+            <li><a ui-sref='home'>Home</a></li>
+            <li><a ui-sref='createPose'>Create a Pose</a></li>
+            <li><a ui-sref='poses'>Poses</a></li>
 
-  <h1 class="text-danger"> Hello World! </h1>
+          </ul>
+
+</header>
 
   <section ui-view class="main-section"></section>
 
@@ -29,7 +39,7 @@
   <script src='https://angular-ui.github.io/ui-router/release/angular-ui-router.js'></script>
   <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
   <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
-  <!-- <script src="client/js/app.js"></script> -->
+  <script src="js/app.js"></script>
 
 </body>
 </html>
