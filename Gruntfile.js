@@ -63,34 +63,40 @@ module.exports = function(grunt) {
             },
         },
 
-      //
-      //   karma: {
-      // app: {
-      //   options: {
-      //     frameworks: ['mocha', 'chai'],
-      //     client: {
-      //       mocha: {
-      //         ui: 'tdd'
-      //       }
-      //     },
-      //     browsers: ['PhantomJS'],
-      //     singleRun: true,
-      //
-      //     files: [
-      //       'node_modules/angular/angular.js',
-      //       'node_modules/angular-ui-router/release/angular-ui-router.js',
-      //       'node_modules/angular-mocks/angular-mocks.js',
-      //       'src/**/*.js',
-      //       'test/specs/**/*.js'
-      //     ],
-
-          // preprocessors: {
-          //   '': ['coverage']
-          // },
-          // reporters: ['progress', 'coverage'],
-          // coverageReporter: {
-          //   type: 'text-summary'
-          // }
+        karma: {
+          app: {
+            options: {
+              frameworks: ['mocha', 'chai'],
+              client: {
+                mocha: {
+                  ui: 'tdd'
+                }
+              },
+              browsers: ['PhantomJS'],
+              singleRun: true,
+              files: [
+                'node_modules/angular/angular.js',
+                'node_modules/angular-ui-router/release/angular-ui-router.js',
+                'node_modules/angular-mocks/angular-mocks.js',
+                'node_modules/angularfire/dist/angularfire.js',
+                'node_modules/firebase/lib/firebase-web.js',
+                'src/app/app.module.js',
+                'src/poses/create-pose.service.js',
+                'test/specs/**/*.js'
+              ],
+              preprocessors:{
+                'src/poses/**/*.js': ['coverage']
+              },
+              reporters: [
+                'progress',
+                'coverage'
+              ],
+              coverageReporter: {
+                type: 'text-summary'
+              }
+            }
+          }
+        }
         });
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -99,7 +105,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-concat');
-    // grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-karma');
 
     grunt.registerTask('js-build', ['jshint', 'concat:js']);
     grunt.registerTask('css-build', ['sass']);
