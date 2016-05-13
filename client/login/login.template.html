@@ -1,7 +1,19 @@
+<div class="container">
 
+  <form ng-submit='login.loginUser()' class= 'form-group'>
+    <input class='form-control' type='text' ng-model='login.loginUser.email' required placeholder='Email'>
+    <input class='form-control' type='text' ng-model='login.loginUser.password' required placeholder='Password'>
+    <button>Login</button>
+
+  </form>
+
+<div class="divider"></div>
 <form ng-submit='login.addUser()' class= 'form-group'>
   <input class='form-control' type='text' ng-model='login.newUser.email' required placeholder='Email'>
   <input class='form-control' type='text' ng-model='login.newUser.password' required placeholder='Password'>
-
   <button>Create My Account</button>
 </form>
+
+
+
+</div>

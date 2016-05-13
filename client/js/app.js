@@ -46,10 +46,13 @@
       .controller('LoginController', LoginController);
 
   LoginController.$inject = ['LoginService'];
+
     function LoginController(LoginService) {
       console.log('in LoginController');
 
       this.newUser = null;
+      this.loginUser = null;
+
 
       this.addUser = function addUser() {
         console.log('in createUser function');
@@ -57,7 +60,10 @@
 
         LoginService.createUser(this.newUser);
 
+      };
 
+      this.loginUser = function loginUser() {
+        LoginService.userLogin(this.loginUser);
       };
 
     }
@@ -73,9 +79,11 @@
   function LoginService (){
 
     var createLogin = new Firebase("https://yogibuild.firebaseio.com/");
+    var login = new Firebase("https://yogibuild.firebaseio.com/");
 
     return {
-      createUser: createUser
+      createUser: createUser,
+      userLogin: userLogin
     };
 
     function createUser(user){
@@ -93,16 +101,24 @@
           console.log("Successfully created user account with uid:", userData);
         }
       });
-
+      // Make better error handling above!!!!
     }
+  function userLogin(user){
 
-// Make better error handling above!!!!
-
+    console.log(user);
+    login.authWithPassword({
+      email    : user.email,
+      password : user.password
+    }, function(error, authData) {
+      if (error) {
+        console.log("Login Failed!", error);
+      } else {
+        console.log("Authenticated successfully with payload:", authData);
+      }
+    });
 
   }
-
-
-
+}
 
 }());
 ;(function() {
