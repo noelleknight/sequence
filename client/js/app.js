@@ -66,13 +66,11 @@
   .module('app')
   .factory('PoseService', PoseService);
 
-  PoseService.$inject = ['$firebaseArray'];
+  PoseService.$inject =  ['$firebaseArray'];
 
   function PoseService ($firebaseArray) {
-
     var poses = new Firebase ('https://yogibuild.firebaseio.com/poses');
     var poseList = $firebaseArray(poses);
-
 
     return {
       createPose: createPose,
@@ -80,7 +78,7 @@
     };
 
     function createPose(newPose) {
-      $firebaseArray(poses).$add(newPose);
+      return $firebaseArray(poses).$add(newPose);
     }
   }
 
