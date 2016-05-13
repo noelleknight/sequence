@@ -1,30 +1,27 @@
 (function() {
-    'use strict';
+  'use strict';
 
-    angular
-      .module('app')
-      .controller('CreatePoseController', CreatePoseController);
+  angular
+  .module('app')
+  .controller('CreatePoseController', CreatePoseController);
 
-    CreatePoseController.$inject = ['PoseService'];
-    function CreatePoseController(PoseService) {
-      console.log('in PoseController');
-      console.log("This is the array", PoseService.poseList);
+  CreatePoseController.$inject = ['PoseService'];
+  function CreatePoseController(PoseService) {
+    console.log("This is the array", PoseService.poseList);
 
+    this.newPose = null;
 
-      var that = this;
-      this.newPose = null;
-
-      this.addPose = function addPose() {
-        console.log('in createPose function');
-        console.log(that.newPose);
-        // do I need to call createPose if data is empty string
-        PoseService.createPose(that.newPose);
-          // .then()
-          // .catch(); add error handling to this function
-      };
+    this.addPose = function addPose() {
+      console.log('in createPose function');
+      console.log(this.newPose);
+      // do I need to call createPose if data is empty string
+      PoseService.createPose(this.newPose);
+      // .then()
+      // .catch(); add error handling to this function
+    };
+    
 
 
 
-
-    }
-    })();
+  }
+})();

@@ -15,6 +15,12 @@
     .state('home', {
       url: '/'
     })
+    .state('login', {
+      url: '/login',
+      templateUrl: 'login/login.template.html',
+      controller: 'LoginController',
+      controllerAs: 'login'
+    })
     .state('createPose', {
       url: '/create-pose',
       templateUrl: 'poses/create-pose.template.html',
@@ -37,28 +43,95 @@
 
     angular
       .module('app')
-      .controller('CreatePoseController', CreatePoseController);
+      .controller('LoginController', LoginController);
 
-    CreatePoseController.$inject = ['PoseService'];
-    function CreatePoseController(PoseService) {
-      console.log('in PoseController');
-      console.log("This is the array", PoseService.poseList);
+  LoginController.$inject = ['LoginService'];
+    function LoginController(LoginService) {
+      console.log('in LoginController');
+
+      this.newUser = null;
+
+      this.addUser = function addUser() {
+        console.log('in createUser function');
+        console.log(this.newUser);
+
+        LoginService.createUser(this.newUser);
 
 
-      var that = this;
-      this.newPose = null;
-
-      this.addPose = function addPose() {
-        console.log('in createPose function');
-        console.log(that.newPose);
-        PoseService.createPose(that.newPose);
       };
-
-
-
 
     }
     })();
+;(function() {
+  'use strict';
+
+  angular
+  .module('app')
+  .factory('LoginService', LoginService);
+
+
+  function LoginService (){
+
+    var createLogin = new Firebase("https://yogibuild.firebaseio.com/");
+
+    return {
+      createUser: createUser
+    };
+
+    function createUser(user){
+
+       console.log(user);
+
+      createLogin.createUser({
+        email    : user.email,
+        password : user.password
+
+      } , function(error, userData) {
+        if (error) {
+          console.log("Error creating user:", error);
+        } else {
+          console.log("Successfully created user account with uid:", userData);
+        }
+      });
+
+    }
+
+// Make better error handling above!!!!
+
+
+  }
+
+
+
+
+}());
+;(function() {
+  'use strict';
+
+  angular
+  .module('app')
+  .controller('CreatePoseController', CreatePoseController);
+
+  CreatePoseController.$inject = ['PoseService'];
+  function CreatePoseController(PoseService) {
+    console.log("This is the array", PoseService.poseList);
+
+    this.newPose = null;
+
+    this.addPose = function addPose() {
+      console.log('in createPose function');
+      console.log(this.newPose);
+      // do I need to call createPose if data is empty string
+      PoseService.createPose(this.newPose);
+      // .then()
+      // .catch(); add error handling to this function
+    };
+    
+
+
+
+  }
+})();
 ;(function() {
   'use strict';
 
@@ -78,7 +151,11 @@
     };
 
     function createPose(newPose) {
-      return $firebaseArray(poses).$add(newPose);
+      if (typeof newPose === "object"){
+        return $firebaseArray(poses).$add(newPose);
+      } else {
+        return null;
+      }
     }
   }
 
