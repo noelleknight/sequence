@@ -15,6 +15,12 @@
     .state('home', {
       url: '/'
     })
+    .state('login', {
+      url: '/login',
+      templateUrl: 'login/login.template.html',
+      controller: 'LoginController',
+      controllerAs: 'login'
+    })
     .state('createPose', {
       url: '/create-pose',
       templateUrl: 'poses/create-pose.template.html',

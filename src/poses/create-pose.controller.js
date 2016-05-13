@@ -17,7 +17,10 @@
       this.addPose = function addPose() {
         console.log('in createPose function');
         console.log(that.newPose);
+        // do I need to call createPose if data is empty string
         PoseService.createPose(that.newPose);
+          // .then()
+          // .catch(); add error handling to this function
       };
 
 
