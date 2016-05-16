@@ -44,6 +44,31 @@
 
 })();
 ;(function() {
+  'use strict';
+
+  angular
+  .module('app')
+  .filter('makeSeqFilter', function(){
+    return function makeSeqFilter(input, difficulty){
+      return input.filter(function (each){
+        var include = true;
+        if(difficulty < each.difficulty){
+          // each is the individual pose,
+          include = false;
+        }
+        return include;
+      });
+
+
+    };
+
+  });
+
+
+
+
+})();
+;(function() {
     'use strict';
 
     angular
@@ -185,38 +210,42 @@
 
 }());
 ;(function() {
-    'use strict';
+  'use strict';
 
-    angular
-      .module('app')
-      .controller('ListPosesController', ListPosesController);
+  angular
+  .module('app')
+  .controller('ListPosesController', ListPosesController);
 
-    ListPosesController.$inject = ['PoseService'];
-    function ListPosesController(PoseService) {
+  ListPosesController.$inject = ['PoseService'];
+  function ListPosesController(PoseService) {
 
-      this.poseList = PoseService.poseList;
+    this.poseList = PoseService.poseList;
 
 
-    }
-    })();
+  }
+})();
 ;(function() {
-    'use strict';
+  'use strict';
 
-    angular
-      .module('app')
-      .controller('SequencesController', SequencesController);
+  angular
+  .module('app')
+  .controller('SequencesController', SequencesController);
 
-    SequencesController.$inject = ['PoseService'];
-    function SequencesController(PoseService) {
+  SequencesController.$inject = ['PoseService'];
+  function SequencesController(PoseService) {
+    this.difficultyLevel = "";
+    this.showPoses = PoseService.poseList;
 
-      this.showPoses = PoseService.poseList;
+    this.addNewSeq = function addNewSeq(newList){
+      console.log(newList);
 
-      this.addNewSeq = function addNewSeq(newList){
-        console.log(newList);
+    };
 
-      };
+    this.tester = function tester() {
+      console.log(this.difficultyLevel);
+    };
 
-    }
-    })();
+  }
+})();
 
 //# sourceMappingURL=app.js.map

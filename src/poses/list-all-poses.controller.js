@@ -1,15 +1,15 @@
 (function() {
-    'use strict';
+  'use strict';
 
-    angular
-      .module('app')
-      .controller('ListPosesController', ListPosesController);
+  angular
+  .module('app')
+  .controller('ListPosesController', ListPosesController);
 
-    ListPosesController.$inject = ['PoseService'];
-    function ListPosesController(PoseService) {
+  ListPosesController.$inject = ['PoseService'];
+  function ListPosesController(PoseService) {
 
-      this.poseList = PoseService.poseList;
+    this.poseList = PoseService.poseList;
 
 
-    }
-    })();
+  }
+})();
