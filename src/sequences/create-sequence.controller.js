@@ -8,6 +8,8 @@
   SequencesController.$inject = ['PoseService'];
   function SequencesController(PoseService) {
     this.difficultyLevel = "";
+    this.bodyFocus = "";
+
     this.showPoses = PoseService.poseList;
 
     this.addNewSeq = function addNewSeq(newList){
