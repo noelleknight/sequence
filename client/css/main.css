@@ -21,4 +21,10 @@ header {
   position: absolute;
   top: 20%; }
 
+.seqPage {
+  position: relative; }
+
+.showPoses {
+  position: relative; }
+
 /*# sourceMappingURL=main.css.map */

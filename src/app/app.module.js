@@ -32,8 +32,13 @@
       templateUrl: 'poses/list-all-poses.template.html',
       controller: 'ListPosesController',
       controllerAs: 'poses'
+    })
+    .state('createSequence', {
+      url: '/create-sequence',
+      templateUrl: 'sequences/create-sequence.template.html',
+      controller: 'SequencesController',
+      controllerAs: 'makeSeq'
     });
-
 
   }
 
