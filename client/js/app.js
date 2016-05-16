@@ -211,6 +211,11 @@
 
       this.showPoses = PoseService.poseList;
 
+      this.addNewSeq = function addNewSeq(newList){
+        console.log(newList);
+
+      };
+
     }
     })();
 

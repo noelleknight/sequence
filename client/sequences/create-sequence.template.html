@@ -1,16 +1,24 @@
-<section class='container seqPage'>
-<form ng-submit='makeSeq.addSequmakeSeq()' Sequences= 'form-group'class='seqForm'>
-  <input class='form-control' type='text' ng-model='makeSeq.newSequence.name' required placeholder='Name'>
-  <input class='form-control' type='text' ng-model='makeSeq.newSequence.sanskrit' required placeholder='Sanskrit'>
-  <input class='form-control' type='text' ng-model='makeSeq.newSequence.type' required placeholder='Type'>
-  <input class='form-control' type='text' ng-model='makeSeq.newSequence.difficulty' required placeholder='Difficulty'>
-  <input class='form-control' type='text' ng-model='makeSeq.newSequence.bodyFocus' required placeholder='Body Focus'>
-  <input class='form-control' type='text' ng-model='makeSeq.newSequence.tag' required placeholder='Tag'>
+<section class='seqPage'>
+<form class='container' ng-submit='makeSeq.addNewSeq(filteredPoses)' Sequences= 'form-group'class='seqForm'>
+  <fieldset>
+    <label for="difficulty">Difficulty</label>
+    <input ng-model="makeSeq.difficulty" type="text" name="difficulty" placeholder="Difficulty">
+  </fieldset>
+  <fieldset>
+    <label for="bodyFocus"> Body Focus</label>
+    <input ng-model="makeSeq.bodyFocus" type="text" name="bodyFocus" placeholder="Body Focus">
+  </fieldset>
+  <fieldset>
+    <label for="duration"> Duration</label>
+    <input ng-model="makeSeq.duration" type="text" name="duration" placeholder="Duration">
+  </fieldset>
+
+
   <button>Create my sequence</button>
 </form>
 
 <ul class="list-group showPoses">
-  <li class="list-group-item allPosts" ng-repeat="pose in makeSeq.showPoses">
+  <li class="list-group-item allPosts" ng-repeat="pose in makeSeq.showPoses | filter: {difficulty:makeSeq.difficulty} as filteredPoses">
     <h2 ng-click="pose.showDetails = !pose.showDetails">{{pose.name}}</h2>
       <div class="pose-details" ng-show="pose.showDetails">
         <p>{{pose.sanskrit}}</p>
