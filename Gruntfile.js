@@ -44,12 +44,6 @@ module.exports = function(grunt) {
                 dest: 'client/',
                 cwd: 'src/'
             },
-            // img: {
-            //     expand: true,
-            //     src: ['**/*.png'],
-            //     dest: 'client',
-            //     cwd: 'src/'
-            // }
         },
 
         concat: {

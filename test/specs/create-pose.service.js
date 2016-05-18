@@ -12,7 +12,6 @@
     setup(inject(function (_PoseService_, _$httpBackend_) {
 
       PoseService = _PoseService_;
-
       $httpBackend = _$httpBackend_;
 
       $httpBackend
@@ -21,7 +20,6 @@
           {"bodyFocus":"w","difficulty":"w","name":"foobar","sanskrit":"ew","tag":"f","type":"w"}
         );
           // {bodyFocus:"Total", difficulty:"3", name:"Corpse Pose", sanskrit:"Savasana", tag:"Cool-Down", type: "Restorative"});
-
     }));
 
     test('sanity check', function (){
