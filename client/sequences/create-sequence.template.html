@@ -16,7 +16,7 @@
       <fieldset>
         <label for="difficultyLevel"> Choose a practice level </label>
         <select name="difficultyLevel" ng-model="makeSeq.difficultyLevel">
-        <option value="">Choose a practice level</option>
+        <option value="" disabled selected>Choose a practice level</option>
         <option value="1">Beginner</option>
         <option value="2">Intermediate</option>
         <option value="3">Advanced</option>
@@ -25,8 +25,8 @@
       </fieldset>
       <fieldset>
         <label for="focus"> Body Focus</label>
-        <select name="focus" ng-model="makeSeq.focus">
-        <option value="">Choose a body focus</option>
+        <select name="focus" ng-model="makeSeq.bodyFocus">
+        <option value="" disabled selected>Choose a body focus</option>
         <option value="Total">Total</option>
         <option value="Core">Core</option>
         <option value="Lower">Lower</option>

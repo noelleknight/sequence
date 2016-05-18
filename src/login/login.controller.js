@@ -5,9 +5,9 @@
       .module('app')
       .controller('LoginController', LoginController);
 
-  LoginController.$inject = ['LoginService'];
+  LoginController.$inject = ['$state','LoginService'];
 
-    function LoginController(LoginService) {
+    function LoginController($state, LoginService) {
       console.log('in LoginController');
 
       this.newUser = null;
@@ -24,6 +24,8 @@
 
       this.loginUser = function loginUser() {
         LoginService.userLogin(this.loginUser);
+        $state.go("createSequence");
+
       };
 
     }

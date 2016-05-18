@@ -12,11 +12,8 @@
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
-    .state('home', {
-      url: '/'
-    })
     .state('login', {
-      url: '/login',
+      url: '/',
       templateUrl: 'login/login.template.html',
       controller: 'LoginController',
       controllerAs: 'login'
@@ -52,10 +49,11 @@
     return function makeSeqFilter(input, difficulty, focus){
       return input.filter(function (each){
         var include = true;
-        if(difficulty <= each.difficulty){
+        if  (difficulty > each.difficulty){
           // each is the individual pose,
           include = false;
-        } if (focus === each.bodyFocus) {
+        }
+        if (focus && focus !== each.bodyFocus) {
           include = false;
         }
         return include;
@@ -77,9 +75,9 @@
       .module('app')
       .controller('LoginController', LoginController);
 
-  LoginController.$inject = ['LoginService'];
+  LoginController.$inject = ['$state','LoginService'];
 
-    function LoginController(LoginService) {
+    function LoginController($state, LoginService) {
       console.log('in LoginController');
 
       this.newUser = null;
@@ -96,6 +94,8 @@
 
       this.loginUser = function loginUser() {
         LoginService.userLogin(this.loginUser);
+        $state.go("createSequence");
+
       };
 
     }
