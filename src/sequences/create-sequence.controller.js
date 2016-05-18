@@ -14,7 +14,6 @@
 
     this.addNewSeq = function addNewSeq(newList){
       console.log(newList);
-
     };
 
     this.tester = function tester() {
