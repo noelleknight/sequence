@@ -69,37 +69,40 @@
 
 })();
 ;(function() {
-    'use strict';
+  'use strict';
 
-    angular
-      .module('app')
-      .controller('LoginController', LoginController);
+  angular
+  .module('app')
+  .controller('LoginController', LoginController);
 
   LoginController.$inject = ['$state','LoginService'];
 
-    function LoginController($state, LoginService) {
-      console.log('in LoginController');
+  function LoginController($state, LoginService) {
+    console.log('in LoginController');
 
-      this.newUser = null;
-      this.loginUser = null;
+    this.newUser = null;
+    this.loginUser = null;
 
 
-      this.addUser = function addUser() {
-        console.log('in createUser function');
-        console.log(this.newUser);
+    this.addUser = function addUser() {
+      console.log('in createUser function');
+      console.log(this.newUser);
 
-        LoginService.createUser(this.newUser);
+      LoginService.createUser(this.newUser);
 
-      };
+    };
 
-      this.loginUser = function loginUser() {
-        LoginService.userLogin(this.loginUser);
-        $state.go("createSequence");
+    this.loginUser = function loginUser() {
+      LoginService.userLogin(this.loginUser);
 
-      };
+    };
+    this.userlogOut = function userlogOut() {
+      LoginService.logOut();
+      $state.go('createSequence');
 
-    }
-    })();
+    };
+  }
+})();
 ;(function() {
   'use strict';
 
@@ -110,19 +113,19 @@
 
   function LoginService (){
 
-    var createLogin = new Firebase("https://yogibuild.firebaseio.com/");
-    var login = new Firebase("https://yogibuild.firebaseio.com/");
+    var ref = new Firebase("https://yogibuild.firebaseio.com/");
 
     return {
       createUser: createUser,
-      userLogin: userLogin
+      userLogin: userLogin,
+      logOut: logOut
     };
 
     function createUser(user){
 
-       console.log(user);
+      console.log(user);
 
-      createLogin.createUser({
+      ref.createUser({
         email    : user.email,
         password : user.password
 
@@ -135,22 +138,25 @@
       });
       // Make better error handling above!!!!
     }
-  function userLogin(user){
+    function userLogin(user){
 
-    console.log(user);
-    login.authWithPassword({
-      email    : user.email,
-      password : user.password
-    }, function(error, authData) {
-      if (error) {
-        console.log("Login Failed!", error);
-      } else {
-        console.log("Authenticated successfully with payload:", authData);
-      }
-    });
+      console.log(user);
+      ref.authWithPassword({
+        email    : user.email,
+        password : user.password
+      }, function(error, authData) {
+        if (error) {
+          console.log("Login Failed!", error);
+        } else {
+          console.log("Authenticated successfully with payload:", authData);
+        }
+      });
 
+    }
+    function logOut(){
+      ref.unauth();
+    }
   }
-}
 
 }());
 ;(function() {

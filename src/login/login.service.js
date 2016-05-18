@@ -8,19 +8,19 @@
 
   function LoginService (){
 
-    var createLogin = new Firebase("https://yogibuild.firebaseio.com/");
-    var login = new Firebase("https://yogibuild.firebaseio.com/");
+    var ref = new Firebase("https://yogibuild.firebaseio.com/");
 
     return {
       createUser: createUser,
-      userLogin: userLogin
+      userLogin: userLogin,
+      logOut: logOut
     };
 
     function createUser(user){
 
-       console.log(user);
+      console.log(user);
 
-      createLogin.createUser({
+      ref.createUser({
         email    : user.email,
         password : user.password
 
@@ -33,21 +33,24 @@
       });
       // Make better error handling above!!!!
     }
-  function userLogin(user){
+    function userLogin(user){
 
-    console.log(user);
-    login.authWithPassword({
-      email    : user.email,
-      password : user.password
-    }, function(error, authData) {
-      if (error) {
-        console.log("Login Failed!", error);
-      } else {
-        console.log("Authenticated successfully with payload:", authData);
-      }
-    });
+      console.log(user);
+      ref.authWithPassword({
+        email    : user.email,
+        password : user.password
+      }, function(error, authData) {
+        if (error) {
+          console.log("Login Failed!", error);
+        } else {
+          console.log("Authenticated successfully with payload:", authData);
+        }
+      });
 
+    }
+    function logOut(){
+      ref.unauth();
+    }
   }
-}
 
 }());
