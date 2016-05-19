@@ -35,7 +35,14 @@
       templateUrl: 'sequences/create-sequence.template.html',
       controller: 'SequencesController',
       controllerAs: 'makeSeq'
+    })
+    .state('mySequences', {
+      url: '/my-sequences',
+      templateUrl: 'sequences/my-sequences.template.html'
+      // controller: 'mySequencesController',
+      // controllerAs: 'mySeq'
     });
+
 
   }
 

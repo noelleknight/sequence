@@ -9,11 +9,13 @@
   function LoginService (){
 
     var ref = new Firebase("https://yogibuild.firebaseio.com/");
+    var userID = null;
 
     return {
       createUser: createUser,
       userLogin: userLogin,
-      logOut: logOut
+      logOut: logOut,
+      getUserID: getUserID
     };
 
     function createUser(user){
@@ -22,7 +24,7 @@
 
       ref.createUser({
         email    : user.email,
-        password : user.password
+        password : user.password,
 
       } , function(error, userData) {
         if (error) {
@@ -31,7 +33,6 @@
           console.log("Successfully created user account with uid:", userData);
         }
       });
-      // Make better error handling above!!!!
     }
     function userLogin(user){
 
@@ -44,10 +45,15 @@
           console.log("Login Failed!", error);
         } else {
           console.log("Authenticated successfully with payload:", authData);
+          userID = authData.uid;
         }
       });
 
     }
+    function getUserID (){
+      return userID;
+    }
+
     function logOut(){
       ref.unauth();
     }

@@ -35,7 +35,14 @@
       templateUrl: 'sequences/create-sequence.template.html',
       controller: 'SequencesController',
       controllerAs: 'makeSeq'
+    })
+    .state('mySequences', {
+      url: '/my-sequences',
+      templateUrl: 'sequences/my-sequences.template.html'
+      // controller: 'mySequencesController',
+      // controllerAs: 'mySeq'
     });
+
 
   }
 
@@ -94,11 +101,11 @@
 
     this.loginUser = function loginUser() {
       LoginService.userLogin(this.loginUser);
+      $state.go('createSequence');
 
     };
     this.userlogOut = function userlogOut() {
       LoginService.logOut();
-      $state.go('createSequence');
 
     };
   }
@@ -114,11 +121,13 @@
   function LoginService (){
 
     var ref = new Firebase("https://yogibuild.firebaseio.com/");
+    var userID = null;
 
     return {
       createUser: createUser,
       userLogin: userLogin,
-      logOut: logOut
+      logOut: logOut,
+      getUserID: getUserID
     };
 
     function createUser(user){
@@ -127,7 +136,7 @@
 
       ref.createUser({
         email    : user.email,
-        password : user.password
+        password : user.password,
 
       } , function(error, userData) {
         if (error) {
@@ -136,7 +145,6 @@
           console.log("Successfully created user account with uid:", userData);
         }
       });
-      // Make better error handling above!!!!
     }
     function userLogin(user){
 
@@ -149,10 +157,15 @@
           console.log("Login Failed!", error);
         } else {
           console.log("Authenticated successfully with payload:", authData);
+          userID = authData.uid;
         }
       });
 
     }
+    function getUserID (){
+      return userID;
+    }
+
     function logOut(){
       ref.unauth();
     }
@@ -232,29 +245,47 @@
 
   }
 })();
-;;(function() {
+;(function() {
   'use strict';
 
   angular
   .module('app')
   .controller('SequencesController', SequencesController);
 
-  SequencesController.$inject = ['PoseService'];
-  function SequencesController(PoseService) {
+  SequencesController.$inject = ['$state','PoseService', 'LoginService'];
+  function SequencesController($state, PoseService, LoginService) {
+
     this.difficultyLevel = "";
     this.bodyFocus = "";
-
+    this.mySequence = {};
     this.showPoses = PoseService.poseList;
 
     this.addNewSeq = function addNewSeq(newList){
-      console.log(newList);
-    };
-
-    this.tester = function tester() {
-      console.log(this.difficultyLevel);
+      this.mySequence.sequence = newList;
+      this.mySequence.id = LoginService.getUserID();
+      $state.go('mySequences');
+      console.log(this.mySequence.id, this.mySequence);
     };
 
   }
 })();
+;// (function() {
+//   'use strict';
+//
+//   angular
+//   .module('app')
+//   .factory('SequenceService', SequenceService);
+//
+//   SequenceService.$inject =  ['$firebaseArray'];
+//
+//   function SequenceService ($firebaseArray) {
+//       var poses = new Firebase('https://yogibuild.firebaseio.com/sequences');
+//
+//
+//
+//
+//
+//   }
+// }());
 
 //# sourceMappingURL=app.js.map

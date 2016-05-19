@@ -24,11 +24,11 @@
 
     this.loginUser = function loginUser() {
       LoginService.userLogin(this.loginUser);
+      $state.go('createSequence');
 
     };
     this.userlogOut = function userlogOut() {
       LoginService.logOut();
-      $state.go('createSequence');
 
     };
   }
