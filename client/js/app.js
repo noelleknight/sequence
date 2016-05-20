@@ -36,12 +36,12 @@
       controller: 'SequenceController',
       controllerAs: 'makeSeq'
     })
-    .state('Sequence', {
-      url: '/sequence/:id',
-      templateUrl: 'sequences/sequence.template.html',
-      controller: 'SequenceController',
-      controllerAs: 'mySeq'
-    })
+    // .state('Sequence', {
+    //   url: '/sequence/:id',
+    //   templateUrl: 'sequences/sequence.template.html',
+    //   controller: 'SequenceController',
+    //   controllerAs: 'mySeq'
+    // })
     .state('mySequences', {
       url: '/my-sequences',
       templateUrl: 'sequences/my-sequences.template.html',
@@ -270,7 +270,9 @@
       var p = SequenceService.createSequence(this.mySequence);
       p.then( function seqView (ref){
         console.log(ref.key());
-        $state.go('Sequence', {id:ref.key()});
+        $state.go('mySequences');
+
+        // , {id:ref.key()});
       });
       // error handle for this fn
       // stateparams for view sequence page
@@ -278,7 +280,7 @@
 
   }
 })();
-;;(function() {
+;(function() {
   'use strict';
 
   angular

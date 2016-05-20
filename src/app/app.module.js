@@ -36,12 +36,12 @@
       controller: 'SequenceController',
       controllerAs: 'makeSeq'
     })
-    .state('Sequence', {
-      url: '/sequence/:id',
-      templateUrl: 'sequences/sequence.template.html',
-      controller: 'SequenceController',
-      controllerAs: 'mySeq'
-    })
+    // .state('Sequence', {
+    //   url: '/sequence/:id',
+    //   templateUrl: 'sequences/sequence.template.html',
+    //   controller: 'SequenceController',
+    //   controllerAs: 'mySeq'
+    // })
     .state('mySequences', {
       url: '/my-sequences',
       templateUrl: 'sequences/my-sequences.template.html',
