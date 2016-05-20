@@ -33,14 +33,20 @@
     .state('createSequence', {
       url: '/create-sequence',
       templateUrl: 'sequences/create-sequence.template.html',
-      controller: 'SequencesController',
+      controller: 'SequenceController',
       controllerAs: 'makeSeq'
+    })
+    .state('Sequence', {
+      url: '/sequence/:id',
+      templateUrl: 'sequences/sequence.template.html',
+      controller: 'SequenceController',
+      controllerAs: 'mySeq'
     })
     .state('mySequences', {
       url: '/my-sequences',
-      templateUrl: 'sequences/my-sequences.template.html'
-      // controller: 'mySequencesController',
-      // controllerAs: 'mySeq'
+      templateUrl: 'sequences/my-sequences.template.html',
+      controller: 'SequenceController',
+      controllerAs: 'mySeq'
     });
 
 

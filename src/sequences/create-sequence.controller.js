@@ -3,10 +3,10 @@
 
   angular
   .module('app')
-  .controller('SequencesController', SequencesController);
+  .controller('SequenceController', SequenceController);
 
-  SequencesController.$inject = ['$state','PoseService', 'LoginService'];
-  function SequencesController($state, PoseService, LoginService) {
+  SequenceController.$inject = ['$state','PoseService', 'LoginService', 'SequenceService'];
+  function SequenceController($state, PoseService, LoginService, SequenceService) {
 
     this.difficultyLevel = "";
     this.bodyFocus = "";
@@ -15,9 +15,14 @@
 
     this.addNewSeq = function addNewSeq(newList){
       this.mySequence.sequence = newList;
-      this.mySequence.id = LoginService.getUserID();
-      $state.go('mySequences');
-      console.log(this.mySequence.id, this.mySequence);
+      this.mySequence.userId = LoginService.getUserID();
+      var p = SequenceService.createSequence(this.mySequence);
+      p.then( function seqView (ref){
+        console.log(ref.key());
+        $state.go('Sequence', {id:ref.key()});
+      });
+      // error handle for this fn
+      // stateparams for view sequence page
     };
 
   }

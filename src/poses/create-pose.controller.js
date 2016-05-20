@@ -6,6 +6,8 @@
   .controller('CreatePoseController', CreatePoseController);
 
   CreatePoseController.$inject = ['PoseService'];
+
+
   function CreatePoseController(PoseService) {
     console.log("This is the array", PoseService.poseList);
 
@@ -19,9 +21,5 @@
       // .then()
       // .catch(); add error handling to this function
     };
-
-
-
-
   }
 })();
