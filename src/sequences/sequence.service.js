@@ -9,11 +9,12 @@
 
   function SequenceService ($firebaseArray) {
       var sequences = new Firebase('https://yogibuild.firebaseio.com/sequences');
-      var sequenceList = $firebaseArray(sequences);
+      // var sequenceList = $firebaseArray(sequences);
 
       return {
         createSequence: createSequence,
-        sequenceList: sequenceList
+        // sequenceList: sequenceList,
+        getSequencess: getSequencess
       };
 
       function createSequence(newSequence) {
@@ -22,6 +23,15 @@
         } else {
           return null;
         }
+      }
+
+      function getSequencess() {
+        var allSequences = [];
+        return $firebaseArray(sequences).$loaded()
+          .then(function(x) {
+            allSequences = x;
+            return allSequences;
+          });
       }
   }
 }());

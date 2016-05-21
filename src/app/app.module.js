@@ -45,7 +45,7 @@
     .state('mySequences', {
       url: '/my-sequences',
       templateUrl: 'sequences/my-sequences.template.html',
-      controller: 'SequenceController',
+      controller: 'ShowSequenceController',
       controllerAs: 'mySeq'
     });
 

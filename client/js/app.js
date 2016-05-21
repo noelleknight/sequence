@@ -45,7 +45,7 @@
     .state('mySequences', {
       url: '/my-sequences',
       templateUrl: 'sequences/my-sequences.template.html',
-      controller: 'SequenceController',
+      controller: 'ShowSequenceController',
       controllerAs: 'mySeq'
     });
 
@@ -285,17 +285,41 @@
 
   angular
   .module('app')
+  .controller('ShowSequenceController', ShowSequenceController);
+
+  ShowSequenceController.$inject = ['LoginService', 'SequenceService'];
+
+  function ShowSequenceController(LoginService, SequenceService){
+    var that = this;
+    this.mySequences = null;
+
+    SequenceService.getSequencess()
+      .then(function getSeq(sequences){
+        console.log(sequences);
+        that.mySequences = sequences;
+      });
+
+
+
+  }
+  })();
+;(function() {
+  'use strict';
+
+  angular
+  .module('app')
   .factory('SequenceService', SequenceService);
 
   SequenceService.$inject =  ['$firebaseArray'];
 
   function SequenceService ($firebaseArray) {
       var sequences = new Firebase('https://yogibuild.firebaseio.com/sequences');
-      var sequenceList = $firebaseArray(sequences);
+      // var sequenceList = $firebaseArray(sequences);
 
       return {
         createSequence: createSequence,
-        sequenceList: sequenceList
+        // sequenceList: sequenceList,
+        getSequencess: getSequencess
       };
 
       function createSequence(newSequence) {
@@ -304,6 +328,15 @@
         } else {
           return null;
         }
+      }
+
+      function getSequencess() {
+        var allSequences = [];
+        return $firebaseArray(sequences).$loaded()
+          .then(function(x) {
+            allSequences = x;
+            return allSequences;
+          });
       }
   }
 }());
