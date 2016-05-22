@@ -14,21 +14,22 @@
 <body>
 
   <header>
-    <div class="page-header">
-      <h1>
-        <!-- Example page header  -->
-        <small>
-          <!-- Subtext for header -->
-        </small></h1>
-      </div>
-      <nav  class="nav-container">
+
+    <div class="my-container">
+      <h1>sequence sequence sequence</h1>
+      <img src="images/handstand.jpg">
+      <nav controller>
         <ul class="nav nav-pills pull-left">
           <li><a ui-sref='login'>Login</a></li>
           <li><a ui-sref='createPose'>Create a Pose</a></li>
           <li><a ui-sref='poses'>Poses</a></li>
           <li><a ui-sref='createSequence'>Make a Sequence</a></li>
           <li><a ui-sref='mySequences'>My Sequences</a></li>
+          <li ng-click ="nav.userlogOut()"><a>Login</a></li>
         </ul>
+      </nav>
+    </div>
+
 
       </header>
 

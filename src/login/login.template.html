@@ -1,19 +1,21 @@
-<div class="container">
-
-  <form ng-submit='login.loginUser()' class= 'form-group'>
-    <input class='form-control' type='text' ng-model='login.loginUser.email' required placeholder='Email'>
-    <input class='form-control' type='text' ng-model='login.loginUser.password' required placeholder='Password'>
-    <button>Login</button>
-
-  </form>
-
-<div class="divider"></div>
-<form ng-submit='login.addUser()' class= 'form-group'>
-  <input class='form-control' type='text' ng-model='login.newUser.email' required placeholder='Email'>
-  <input class='form-control' type='text' ng-model='login.newUser.password' required placeholder='Password'>
-  <button>Create My Account</button>
-</form>
-
+<div id="box">
+  <div id="left">
+    <form ng-submit='login.loginUser()' class= 'form-group lgForm'>
+      <input class='form-control lgInput topInput' type='text' ng-model='login.loginUser.email' required placeholder='Email'>
+      <input class='form-control lgInput' type='text' ng-model='login.loginUser.password' required placeholder='Password'>
+      <button class="btn">Login</button>
+    </form>
 </div>
 
-<button ng-click ='login.userlogOut()'> Logout</button>
+<div class="divider"></div>
+
+<div id="right">
+  <form ng-submit='login.addUser()' class= 'form-group lgForm'>
+    <input class='form-control lgInput topInput' type='text' ng-model='login.newUser.email' required placeholder='Email'>
+    <input class='form-control lgInput' type='text' ng-model='login.newUser.password' required placeholder='Password'>
+    <button class="btn">Create Login</button>
+  </form>
+</div>
+</div>
+
+<button class="btn" ng-click ='login.userlogOut()'> Logout</button>

@@ -13,7 +13,8 @@
       return {
         createSequence: createSequence,
         getSequencess: getSequencess,
-        getSeqObj: getSeqObj
+        getSeqObj: getSeqObj,
+        getUserSequences: getUserSequences
       };
 
       function createSequence(newSequence) {
@@ -39,6 +40,16 @@
             console.log('$firebaseObject', obj);
             return obj;
           });
+      }
+      function getUserSequences(uId){
+        console.log("we are in the get user sequences function" );
+        sequences.orderByChild("userId").equalTo(uId).on("child_added", function(snapshot) {
+          var userSeq = snapshot.val();
+          console.log(userSeq.sequence);
+          return userSeq.sequence;
+
+});
+
       }
   }
 })();

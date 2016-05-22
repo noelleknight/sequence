@@ -299,19 +299,17 @@
   ShowSequenceController.$inject = ['LoginService', 'SequenceService'];
 
   function ShowSequenceController(LoginService, SequenceService){
-    var that = this;
+    // var that = this;
+    this.uId = LoginService.getUserID();
     this.mySequences = null;
-    // this.userSequences = []; this will become array of sequences that match userId
-    this.seqId = LoginService.getUserID;
-
-    SequenceService.getSequencess()
-      .then(function getSeq(sequences){
-        console.log(sequences);
-        that.mySequences = sequences;
-
-      });
-
     
+    this.seqId = LoginService.getUserID;
+    this.mySequences = SequenceService.getUserSequences(this.uId);
+
+
+      // });
+
+
 
 
   }
@@ -331,7 +329,8 @@
       return {
         createSequence: createSequence,
         getSequencess: getSequencess,
-        getSeqObj: getSeqObj
+        getSeqObj: getSeqObj,
+        getUserSequences: getUserSequences
       };
 
       function createSequence(newSequence) {
@@ -357,6 +356,16 @@
             console.log('$firebaseObject', obj);
             return obj;
           });
+      }
+      function getUserSequences(uId){
+        console.log("we are in the get user sequences function" );
+        sequences.orderByChild("userId").equalTo(uId).on("child_added", function(snapshot) {
+          var userSeq = snapshot.val();
+          console.log(userSeq.sequence);
+          return userSeq.sequence;
+
+});
+
       }
   }
 })();
