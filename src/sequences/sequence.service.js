@@ -40,14 +40,5 @@
             return obj;
           });
       }
-
-      // function getEventObject(eventId) {
-      //  var eventObj = new Firebase('https://incandescent-heat-8431.firebaseio.com/events/' + eventId);
-      //  return $firebaseObject(eventObj).$loaded()
-      //    .then(function(obj) {
-      //      console.log('$firebaseObject', obj);
-      //      return obj;
-      //    });
-      // }
   }
 })();
