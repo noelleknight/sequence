@@ -36,20 +36,18 @@
       controller: 'SequenceController',
       controllerAs: 'makeSeq'
     })
-    // .state('Sequence', {
-    //   url: '/sequence/:id',
-    //   templateUrl: 'sequences/sequence.template.html',
-    //   controller: 'SequenceController',
-    //   controllerAs: 'mySeq'
-    // })
+    .state('sequence', {
+      url: '/sequences/:id',
+      templateUrl: 'sequences/view-sequence.template.html',
+      controller: 'ViewSeqController',
+      controllerAs: 'viewSeq'
+    })
     .state('mySequences', {
       url: '/my-sequences',
       templateUrl: 'sequences/my-sequences.template.html',
       controller: 'ShowSequenceController',
       controllerAs: 'mySeq'
     });
-
-
   }
 
 })();

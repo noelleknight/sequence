@@ -5,16 +5,15 @@
   .module('app')
   .factory('SequenceService', SequenceService);
 
-  SequenceService.$inject =  ['$firebaseArray'];
+  SequenceService.$inject =  ['$firebaseArray', '$firebaseObject'];
 
-  function SequenceService ($firebaseArray) {
+  function SequenceService ($firebaseArray, $firebaseObject) {
       var sequences = new Firebase('https://yogibuild.firebaseio.com/sequences');
-      // var sequenceList = $firebaseArray(sequences);
 
       return {
         createSequence: createSequence,
-        // sequenceList: sequenceList,
-        getSequencess: getSequencess
+        getSequencess: getSequencess,
+        getSeqObj: getSeqObj
       };
 
       function createSequence(newSequence) {
@@ -24,14 +23,31 @@
           return null;
         }
       }
-
       function getSequencess() {
         var allSequences = [];
         return $firebaseArray(sequences).$loaded()
-          .then(function(x) {
-            allSequences = x;
+          .then(function(seqs) {
+            allSequences = seqs;
             return allSequences;
           });
       }
+
+      function getSeqObj(seqId){
+        var seqObj = new Firebase('https://yogibuild.firebaseio.com/sequences/' + seqId);
+        return $firebaseObject(seqObj).$loaded()
+          .then(function(obj) {
+            console.log('$firebaseObject', obj);
+            return obj;
+          });
+      }
+
+      // function getEventObject(eventId) {
+      //  var eventObj = new Firebase('https://incandescent-heat-8431.firebaseio.com/events/' + eventId);
+      //  return $firebaseObject(eventObj).$loaded()
+      //    .then(function(obj) {
+      //      console.log('$firebaseObject', obj);
+      //      return obj;
+      //    });
+      // }
   }
-}());
+})();

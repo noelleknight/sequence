@@ -18,10 +18,7 @@
       this.mySequence.userId = LoginService.getUserID();
       var p = SequenceService.createSequence(this.mySequence);
       p.then( function seqView (ref){
-        console.log(ref.key());
-        $state.go('mySequences');
-
-        // , {id:ref.key()});
+        $state.go('sequence' , {id:ref.key()});
       });
       // error handle for this fn
       // stateparams for view sequence page

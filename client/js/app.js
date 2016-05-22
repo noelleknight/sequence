@@ -36,20 +36,18 @@
       controller: 'SequenceController',
       controllerAs: 'makeSeq'
     })
-    // .state('Sequence', {
-    //   url: '/sequence/:id',
-    //   templateUrl: 'sequences/sequence.template.html',
-    //   controller: 'SequenceController',
-    //   controllerAs: 'mySeq'
-    // })
+    .state('sequence', {
+      url: '/sequences/:id',
+      templateUrl: 'sequences/view-sequence.template.html',
+      controller: 'ViewSeqController',
+      controllerAs: 'viewSeq'
+    })
     .state('mySequences', {
       url: '/my-sequences',
       templateUrl: 'sequences/my-sequences.template.html',
       controller: 'ShowSequenceController',
       controllerAs: 'mySeq'
     });
-
-
   }
 
 })();
@@ -71,14 +69,28 @@
         }
         return include;
       });
-
-
     };
-
   });
 
+})();
+;(function() {
+  'use strict';
 
+  angular
+  .module('app')
+  .filter('mySeqFilter', function(){
+    return function mySeqFilter(input, id){
+      return input.filter(function (each){
 
+        var include = false;
+        if  (id === each.userId){
+          // each is the individual pose,
+          include = true;
+        }
+        return include;
+      });
+    };
+  });
 
 })();
 ;(function() {
@@ -269,10 +281,7 @@
       this.mySequence.userId = LoginService.getUserID();
       var p = SequenceService.createSequence(this.mySequence);
       p.then( function seqView (ref){
-        console.log(ref.key());
-        $state.go('mySequences');
-
-        // , {id:ref.key()});
+        $state.go('sequence' , {id:ref.key()});
       });
       // error handle for this fn
       // stateparams for view sequence page
@@ -292,13 +301,15 @@
   function ShowSequenceController(LoginService, SequenceService){
     var that = this;
     this.mySequences = null;
+    // this.userSequences = []; this will become array of sequences that match userId
+    this.seqId = LoginService.getUserID;
 
     SequenceService.getSequencess()
       .then(function getSeq(sequences){
         console.log(sequences);
         that.mySequences = sequences;
-      });
 
+      });
 
 
   }
@@ -310,16 +321,15 @@
   .module('app')
   .factory('SequenceService', SequenceService);
 
-  SequenceService.$inject =  ['$firebaseArray'];
+  SequenceService.$inject =  ['$firebaseArray', '$firebaseObject'];
 
-  function SequenceService ($firebaseArray) {
+  function SequenceService ($firebaseArray, $firebaseObject) {
       var sequences = new Firebase('https://yogibuild.firebaseio.com/sequences');
-      // var sequenceList = $firebaseArray(sequences);
 
       return {
         createSequence: createSequence,
-        // sequenceList: sequenceList,
-        getSequencess: getSequencess
+        getSequencess: getSequencess,
+        getSeqObj: getSeqObj
       };
 
       function createSequence(newSequence) {
@@ -329,16 +339,59 @@
           return null;
         }
       }
-
       function getSequencess() {
         var allSequences = [];
         return $firebaseArray(sequences).$loaded()
-          .then(function(x) {
-            allSequences = x;
+          .then(function(seqs) {
+            allSequences = seqs;
             return allSequences;
           });
       }
+
+      function getSeqObj(seqId){
+        var seqObj = new Firebase('https://yogibuild.firebaseio.com/sequences/' + seqId);
+        return $firebaseObject(seqObj).$loaded()
+          .then(function(obj) {
+            console.log('$firebaseObject', obj);
+            return obj;
+          });
+      }
+
+      // function getEventObject(eventId) {
+      //  var eventObj = new Firebase('https://incandescent-heat-8431.firebaseio.com/events/' + eventId);
+      //  return $firebaseObject(eventObj).$loaded()
+      //    .then(function(obj) {
+      //      console.log('$firebaseObject', obj);
+      //      return obj;
+      //    });
+      // }
   }
-}());
+})();
+;(function() {
+  'use strict';
+
+  angular
+  .module('app')
+  .controller('ViewSeqController', ViewSeqController);
+
+  ViewSeqController.$inject = ['$stateParams','LoginService', 'SequenceService'];
+
+  function ViewSeqController($stateParams, LoginService, SequenceService){
+  var that = this;
+  this.showSeq = null;
+  //  this.errorMessage = '';
+   
+  SequenceService.getSeqObj($stateParams.id)
+    .then(function(seqObj) {
+      console.log(seqObj);
+      that.showSeq = seqObj;
+    })
+    .catch(function(err) {
+      console.log('catch error', err);
+      // that.errorMessage = 'The server is not responding. Please try again shortly.';
+    });
+
+  }
+  })();
 
 //# sourceMappingURL=app.js.map
