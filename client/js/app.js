@@ -209,6 +209,7 @@
     function logOut(){
       console.log("hello");
       var authObj = $firebaseAuth(ref);
+      userID = null;
       authObj.$unauth();
       localStorage.setItem('userInfo', '');
     }
