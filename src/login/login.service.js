@@ -5,8 +5,8 @@
   .module('app')
   .factory('LoginService', LoginService);
 
-
-  function LoginService (){
+  LoginService.$inject = ['$firebaseAuth'];
+  function LoginService ($firebaseAuth){
 
     var ref = new Firebase("https://yogibuild.firebaseio.com/");
     var userID = null;
@@ -59,7 +59,9 @@
     }
 
     function logOut(){
-      ref.unauth();
+      console.log("hello");
+      var authObj = $firebaseAuth(ref);
+      authObj.$unauth();
       localStorage.setItem('userInfo', '');
     }
     function getUserInfo (){

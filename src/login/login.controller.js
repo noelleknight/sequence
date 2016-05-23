@@ -12,10 +12,11 @@
 
     this.newUser = null;
     this.loginUser = null;
-
-    if (LoginService.getUserID()) {
-      $state.go('createSequence');
-    }
+    this.loggedIn = false;
+    //
+    // if (LoginService.getUserID()) {
+    //   $state.go('createSequence');
+    // }
 
     this.addUser = function addUser() {
       console.log('in createUser function');
@@ -29,6 +30,7 @@
       .then(function userLog(){
         console.log("in login promise");
           $state.go('createSequence');
+
       });
 
 
@@ -36,7 +38,7 @@
     this.userlogOut = function userlogOut() {
       console.log("I am logging out");
       LoginService.logOut();
-      $state.go('login');
+          $state.go('login');
     };
 
     this.isLoggedIn = function isLoggedIn() {

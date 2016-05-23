@@ -1,9 +1,8 @@
-
-  <p> hello </p>
-<ul>
-  <li ng-repeat="mySequence in mySeq.mySequences">
-    <p> {{mySequence.name}}</p>
-
-
-  </li>
-</ul>
+<div ng-repeat="mySequence in mySeq.mySequences">
+    <h3> {{mySequence.name}}</h3>
+    <ul ng-repeat = "pose in mySequence.sequence">
+      <li> {{pose.name}}</li>
+      <li> {{pose.sanskrit}}</li>
+      </li>
+    </ul>
+</div>

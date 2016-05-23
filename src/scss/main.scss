@@ -10,7 +10,7 @@ header {
   height: 30%;
   margin-top: -40px;
 }
-.banner-image {
+.image {
   height: inherit;
   z-index: -1;
   width: 100%;
@@ -35,16 +35,12 @@ header {
 .my-container {
     position: relative;
     overflow: hidden;
-    color: white;
     text-align: center;
     }
-.my-container h1 {
-    padding: 200px;
+.my-container img {
     position: relative;
     z-index: 2;
-}
-.my-container img {
-    position: absolute;
+    // height: 5%;
     left: 0;
     top: 0;
     width: 100%;
