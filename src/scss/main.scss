@@ -24,6 +24,7 @@ header {
   top: 20%;
 }
 .seqPage {
+  // text-align: center;
   position: relative;;
   // float: left;
 }
@@ -67,11 +68,9 @@ header {
 
 #box {
     left: 20%;
-    // background:#e6faf9;
     position: relative;
     width:60%;
     height:20em;
-    // padding:10px;
 }
 .divider{
     position:absolute;
@@ -112,4 +111,14 @@ header {
 }
 .main-section {
   margin-bottom: 10em;
+  margin-right: 13em;
+  margin-left: 13em;
+
+}
+.seqInput{
+  width: 200px;
+  margin-bottom: 1em;
+}
+.seqPoses{
+  text-align: center;
 }

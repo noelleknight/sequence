@@ -1,6 +1,6 @@
 <ul class="list-group poseList">
   <li class="list-group-item allPosts" ng-repeat="pose in poses.poseList">
-    <h2 ng-click="pose.showDetails = !pose.showDetails">{{pose.name}}</h2>
+    <h3 ng-click="pose.showDetails = !pose.showDetails">{{pose.name}}</h3>
       <div class="pose-details" ng-show="pose.showDetails">
         <p>{{pose.sanskrit}}</p>
         <p>Type: {{pose.type}}</P>

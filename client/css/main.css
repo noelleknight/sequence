@@ -92,6 +92,15 @@ header {
     font-size: 1.2em; }
 
 .main-section {
-  margin-bottom: 10em; }
+  margin-bottom: 10em;
+  margin-right: 13em;
+  margin-left: 13em; }
+
+.seqInput {
+  width: 200px;
+  margin-bottom: 1em; }
+
+.seqPoses {
+  text-align: center; }
 
 /*# sourceMappingURL=main.css.map */
