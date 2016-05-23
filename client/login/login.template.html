@@ -2,20 +2,18 @@
   <div id="left">
     <form ng-submit='login.loginUser()' class= 'form-group lgForm'>
       <input class='form-control lgInput topInput' type='text' ng-model='login.loginUser.email' required placeholder='Email'>
-      <input class='form-control lgInput' type='text' ng-model='login.loginUser.password' required placeholder='Password'>
+      <input class='form-control lgInput' type='password' ng-model='login.loginUser.password' required placeholder='Password'>
       <button class="btn">Login</button>
     </form>
 </div>
 
-<div class="divider"></div>
+<div class="divider" ng-hide="login.userCreated()"></div>
 
-<div id="right">
+<div id="right" ng-hide="login.userCreated()">
   <form ng-submit='login.addUser()' class= 'form-group lgForm'>
     <input class='form-control lgInput topInput' type='text' ng-model='login.newUser.email' required placeholder='Email'>
-    <input class='form-control lgInput' type='text' ng-model='login.newUser.password' required placeholder='Password'>
+    <input class='form-control lgInput' type='password' ng-model='login.newUser.password' required placeholder='Password'>
     <button class="btn">Create Login</button>
   </form>
 </div>
 </div>
-
-<button class="btn" ng-click ='login.userlogOut()'> Logout</button>

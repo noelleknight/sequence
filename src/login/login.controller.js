@@ -17,7 +17,6 @@
     this.addUser = function addUser() {
       console.log('in createUser function');
       console.log(this.newUser);
-
       LoginService.createUser(this.newUser);
 
     };
@@ -28,8 +27,18 @@
 
     };
     this.userlogOut = function userlogOut() {
+      console.log("I am logging out");
       LoginService.logOut();
 
     };
+
+    this.isLoggedIn = function isLoggedIn() {
+      return !!LoginService.getUserID();
+    };
+
+    this.userCreated = function userCreated() {
+      return !!LoginService.getUserInfo();
+    };
+
   }
 })();

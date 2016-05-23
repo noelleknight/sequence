@@ -10,8 +10,10 @@
 
     var ref = new Firebase("https://yogibuild.firebaseio.com/");
     var userID = null;
+    var userInfo = null;
 
     return {
+      getUserInfo : getUserInfo,
       createUser: createUser,
       userLogin: userLogin,
       logOut: logOut,
@@ -19,9 +21,7 @@
     };
 
     function createUser(user){
-
       console.log(user);
-
       ref.createUser({
         email    : user.email,
         password : user.password,
@@ -31,11 +31,11 @@
           console.log("Error creating user:", error);
         } else {
           console.log("Successfully created user account with uid:", userData);
+          userInfo = userData;
         }
       });
     }
     function userLogin(user){
-
       console.log(user);
       ref.authWithPassword({
         email    : user.email,
@@ -56,6 +56,9 @@
 
     function logOut(){
       ref.unauth();
+    }
+    function getUserInfo (){
+      return userInfo;
     }
   }
 

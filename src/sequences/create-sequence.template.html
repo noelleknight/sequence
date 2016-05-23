@@ -1,7 +1,7 @@
 
     <section class='seqPage'>
 
-    <form class='container' ng-submit='makeSeq.addNewSeq(filteredPoses)' Sequences= 'form-group'class='seqForm'>
+    <form class='container' ng-submit='makeSeq.addNewSeq(filteredPoses, makeSeq.name)' Sequences= 'form-group'class='seqForm'>
 
       <fieldset>
         <label for="difficultyLevel"> Choose a practice level </label>
@@ -26,7 +26,7 @@
 
       <fieldset>
         <label for="name">Sequence Name</label>
-        <input ng-model="makeSeq.seqName" type="text" name="Sequence Name" placeholder="Name">
+        <input ng-model="makeSeq.name" type="text" name="Sequence Name" placeholder="Name">
       </fieldset>
 
 

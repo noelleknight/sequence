@@ -16,16 +16,18 @@
   <header>
 
     <div class="my-container">
-      <h1>sequence sequence sequence</h1>
-      <img src="images/handstand.jpg">
-      <nav controller>
+      <div class="image">
+        <h1>sequence sequence sequence</h1>
+        <img src="images/handstand.jpg">
+      <div>
+      <nav ng-controller="LoginController as login">
         <ul class="nav nav-pills pull-left">
-          <li><a ui-sref='login'>Login</a></li>
-          <li><a ui-sref='createPose'>Create a Pose</a></li>
-          <li><a ui-sref='poses'>Poses</a></li>
-          <li><a ui-sref='createSequence'>Make a Sequence</a></li>
-          <li><a ui-sref='mySequences'>My Sequences</a></li>
-          <li ng-click ="nav.userlogOut()"><a>Login</a></li>
+          <li ng-hide="login.isLoggedIn()"><a ui-sref='login'>Login</a></li>
+          <!-- <li><a ui-sref='createPose'>Create a Pose</a></li>
+          <li><a ui-sref='poses'>Poses</a></li> -->
+          <li ng-show="login.isLoggedIn()"><a ui-sref='createSequence'>Make a Sequence</a></li>
+          <li ng-show="login.isLoggedIn()"><a ui-sref='mySequences'>My Sequences</a></li>
+          <li ng-show="login.isLoggedIn()"><a ng-click ="login.userlogOut()" ui-sref='login'>Logout</a></li>
         </ul>
       </nav>
     </div>
@@ -35,6 +37,11 @@
 
       <section ui-view class="main-section"></section>
 
+      <footer class="footer navbar navbar-fixed-bottom">
+        <div class="footer footer-container">
+          <p> &copy 2016 Noelle Knight </p>
+        </div>
+      </footer>
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
       <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js'></script>

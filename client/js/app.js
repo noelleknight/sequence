@@ -112,7 +112,6 @@
     this.addUser = function addUser() {
       console.log('in createUser function');
       console.log(this.newUser);
-
       LoginService.createUser(this.newUser);
 
     };
@@ -123,9 +122,19 @@
 
     };
     this.userlogOut = function userlogOut() {
+      console.log("I am logging out");
       LoginService.logOut();
 
     };
+
+    this.isLoggedIn = function isLoggedIn() {
+      return !!LoginService.getUserID();
+    };
+
+    this.userCreated = function userCreated() {
+      return !!LoginService.getUserInfo();
+    };
+
   }
 })();
 ;(function() {
@@ -140,8 +149,10 @@
 
     var ref = new Firebase("https://yogibuild.firebaseio.com/");
     var userID = null;
+    var userInfo = null;
 
     return {
+      getUserInfo : getUserInfo,
       createUser: createUser,
       userLogin: userLogin,
       logOut: logOut,
@@ -149,9 +160,7 @@
     };
 
     function createUser(user){
-
       console.log(user);
-
       ref.createUser({
         email    : user.email,
         password : user.password,
@@ -161,11 +170,11 @@
           console.log("Error creating user:", error);
         } else {
           console.log("Successfully created user account with uid:", userData);
+          userInfo = userData;
         }
       });
     }
     function userLogin(user){
-
       console.log(user);
       ref.authWithPassword({
         email    : user.email,
@@ -186,6 +195,9 @@
 
     function logOut(){
       ref.unauth();
+    }
+    function getUserInfo (){
+      return userInfo;
     }
   }
 
@@ -270,15 +282,17 @@
 
   SequenceController.$inject = ['$state','PoseService', 'LoginService', 'SequenceService'];
   function SequenceController($state, PoseService, LoginService, SequenceService) {
-
     this.difficultyLevel = "";
     this.bodyFocus = "";
     this.mySequence = {};
     this.showPoses = PoseService.poseList;
+    this.name = null;
 
-    this.addNewSeq = function addNewSeq(newList){
+    this.addNewSeq = function addNewSeq(newList, input){
+      this.mySequence.name = input;
       this.mySequence.sequence = newList;
       this.mySequence.userId = LoginService.getUserID();
+
       var p = SequenceService.createSequence(this.mySequence);
       p.then( function seqView (ref){
         $state.go('sequence' , {id:ref.key()});
@@ -302,10 +316,17 @@
     // var that = this;
     this.uId = LoginService.getUserID();
     this.mySequences = null;
-    
+    // var that = this;
     this.seqId = LoginService.getUserID;
-    this.mySequences = SequenceService.getUserSequences(this.uId);
+    this.mySequences = SequenceService.getUserSequences(this.uId).sequence;
+    this.mySequenceName = SequenceService.getUserSequences(this.uId).name;
+    //
+    // SequenceService.getUserSequences(this.uId)
+    //   .then(function getSeq(sequences){
+    //     console.log(sequences);
+    //     that.mySequences = sequences;
 
+      // });
 
       // });
 
@@ -361,8 +382,21 @@
         console.log("we are in the get user sequences function" );
         sequences.orderByChild("userId").equalTo(uId).on("child_added", function(snapshot) {
           var userSeq = snapshot.val();
-          console.log(userSeq.sequence);
-          return userSeq.sequence;
+          console.log(userSeq);
+          // userSeq = {
+          //   name: 'Noelles sequence',
+          //   sequence: [
+          //     {
+          //       bodyFocus: "Core",
+          //       difficulty: 1,
+          //       name: 'Boat'
+          //     },
+          //     {
+          //       name: 'Chair'
+          //     }
+          //   ]
+          // }
+          return userSeq;
 
 });
 

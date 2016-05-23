@@ -91,6 +91,25 @@ header {
   margin-top: 5em;
 }
 .btn {
-  width: 12em;
+  width: 10em;
   background-color: #F0AAB5;
+}
+// h1 {
+//   position: absolute;
+//   margin-top:20em;
+// }
+
+.footer{
+  background-color:  #AAF0E5;
+  position: relative;
+  clear: both;
+  p{
+    position: absolute;
+    bottom: -45px;
+    right: 15px;
+    font-size: 1.2em;
+  }
+}
+.main-section {
+  margin-bottom: 10em;
 }

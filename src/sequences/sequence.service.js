@@ -45,8 +45,21 @@
         console.log("we are in the get user sequences function" );
         sequences.orderByChild("userId").equalTo(uId).on("child_added", function(snapshot) {
           var userSeq = snapshot.val();
-          console.log(userSeq.sequence);
-          return userSeq.sequence;
+          console.log(userSeq);
+          // userSeq = {
+          //   name: 'Noelles sequence',
+          //   sequence: [
+          //     {
+          //       bodyFocus: "Core",
+          //       difficulty: 1,
+          //       name: 'Boat'
+          //     },
+          //     {
+          //       name: 'Chair'
+          //     }
+          //   ]
+          // }
+          return userSeq;
 
 });
 
