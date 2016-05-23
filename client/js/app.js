@@ -108,6 +108,9 @@
     this.newUser = null;
     this.loginUser = null;
 
+    if (LoginService.getUserID()) {
+      $state.go('createSequence');
+    }
 
     this.addUser = function addUser() {
       console.log('in createUser function');
@@ -117,14 +120,18 @@
     };
 
     this.loginUser = function loginUser() {
-      LoginService.userLogin(this.loginUser);
-      $state.go('createSequence');
+      LoginService.userLogin(this.loginUser)
+      .then(function userLog(){
+        console.log("in login promise");
+          $state.go('createSequence');
+      });
+
 
     };
     this.userlogOut = function userlogOut() {
       console.log("I am logging out");
       LoginService.logOut();
-
+      $state.go('login');
     };
 
     this.isLoggedIn = function isLoggedIn() {
@@ -150,6 +157,12 @@
     var ref = new Firebase("https://yogibuild.firebaseio.com/");
     var userID = null;
     var userInfo = null;
+    var existingData = {};
+
+    try { existingData = JSON.parse(localStorage.getItem('userInfo')) || {}; } catch(e) { /* don't care */ }
+    if (existingData.email && existingData.userID) {
+      userID = existingData.userID;
+    }
 
     return {
       getUserInfo : getUserInfo,
@@ -176,16 +189,14 @@
     }
     function userLogin(user){
       console.log(user);
-      ref.authWithPassword({
+
+      return ref.authWithPassword({
         email    : user.email,
         password : user.password
-      }, function(error, authData) {
-        if (error) {
-          console.log("Login Failed!", error);
-        } else {
+        }).then( function(authData) {
           console.log("Authenticated successfully with payload:", authData);
           userID = authData.uid;
-        }
+          localStorage.setItem('userInfo', JSON.stringify({ userID: userID, email: user.email }));
       });
 
     }
@@ -195,6 +206,7 @@
 
     function logOut(){
       ref.unauth();
+      localStorage.setItem('userInfo', '');
     }
     function getUserInfo (){
       return userInfo;
@@ -313,25 +325,16 @@
   ShowSequenceController.$inject = ['LoginService', 'SequenceService'];
 
   function ShowSequenceController(LoginService, SequenceService){
-    // var that = this;
+    var that = this;
     this.uId = LoginService.getUserID();
     this.mySequences = null;
-    // var that = this;
+
     this.seqId = LoginService.getUserID;
-    this.mySequences = SequenceService.getUserSequences(this.uId).sequence;
-    this.mySequenceName = SequenceService.getUserSequences(this.uId).name;
-    //
-    // SequenceService.getUserSequences(this.uId)
-    //   .then(function getSeq(sequences){
-    //     console.log(sequences);
-    //     that.mySequences = sequences;
-
-      // });
-
-      // });
-
-
-
+    SequenceService.getUserSequences(this.uId)
+      .then(function(snapshot) {
+        that.mySequences = snapshot.val();
+        // Object.keys(that.mySequences);
+      });
 
   }
   })();
@@ -379,27 +382,11 @@
           });
       }
       function getUserSequences(uId){
-        console.log("we are in the get user sequences function" );
-        sequences.orderByChild("userId").equalTo(uId).on("child_added", function(snapshot) {
-          var userSeq = snapshot.val();
-          console.log(userSeq);
-          // userSeq = {
-          //   name: 'Noelles sequence',
-          //   sequence: [
-          //     {
-          //       bodyFocus: "Core",
-          //       difficulty: 1,
-          //       name: 'Boat'
-          //     },
-          //     {
-          //       name: 'Chair'
-          //     }
-          //   ]
-          // }
-          return userSeq;
-
-});
-
+        console.log("we are in the get user sequences function", uId);
+        return sequences
+          .orderByChild("userId")
+          .equalTo(uId)
+          .once("value");
       }
   }
 })();
@@ -416,7 +403,7 @@
   var that = this;
   this.showSeq = null;
   //  this.errorMessage = '';
-   
+
   SequenceService.getSeqObj($stateParams.id)
     .then(function(seqObj) {
       console.log(seqObj);

@@ -11,6 +11,12 @@
     var ref = new Firebase("https://yogibuild.firebaseio.com/");
     var userID = null;
     var userInfo = null;
+    var existingData = {};
+
+    try { existingData = JSON.parse(localStorage.getItem('userInfo')) || {}; } catch(e) { /* don't care */ }
+    if (existingData.email && existingData.userID) {
+      userID = existingData.userID;
+    }
 
     return {
       getUserInfo : getUserInfo,
@@ -37,16 +43,14 @@
     }
     function userLogin(user){
       console.log(user);
-      ref.authWithPassword({
+
+      return ref.authWithPassword({
         email    : user.email,
         password : user.password
-      }, function(error, authData) {
-        if (error) {
-          console.log("Login Failed!", error);
-        } else {
+        }).then( function(authData) {
           console.log("Authenticated successfully with payload:", authData);
           userID = authData.uid;
-        }
+          localStorage.setItem('userInfo', JSON.stringify({ userID: userID, email: user.email }));
       });
 
     }
@@ -56,6 +60,7 @@
 
     function logOut(){
       ref.unauth();
+      localStorage.setItem('userInfo', '');
     }
     function getUserInfo (){
       return userInfo;

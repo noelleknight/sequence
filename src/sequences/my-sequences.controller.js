@@ -8,25 +8,16 @@
   ShowSequenceController.$inject = ['LoginService', 'SequenceService'];
 
   function ShowSequenceController(LoginService, SequenceService){
-    // var that = this;
+    var that = this;
     this.uId = LoginService.getUserID();
     this.mySequences = null;
-    // var that = this;
+
     this.seqId = LoginService.getUserID;
-    this.mySequences = SequenceService.getUserSequences(this.uId).sequence;
-    this.mySequenceName = SequenceService.getUserSequences(this.uId).name;
-    //
-    // SequenceService.getUserSequences(this.uId)
-    //   .then(function getSeq(sequences){
-    //     console.log(sequences);
-    //     that.mySequences = sequences;
-
-      // });
-
-      // });
-
-
-
+    SequenceService.getUserSequences(this.uId)
+      .then(function(snapshot) {
+        that.mySequences = snapshot.val();
+        // Object.keys(that.mySequences);
+      });
 
   }
   })();

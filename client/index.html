@@ -27,7 +27,7 @@
           <li><a ui-sref='poses'>Poses</a></li> -->
           <li ng-show="login.isLoggedIn()"><a ui-sref='createSequence'>Make a Sequence</a></li>
           <li ng-show="login.isLoggedIn()"><a ui-sref='mySequences'>My Sequences</a></li>
-          <li ng-show="login.isLoggedIn()"><a ng-click ="login.userlogOut()" ui-sref='login'>Logout</a></li>
+          <li ng-show="login.isLoggedIn()"><a ng-click ="login.userlogOut()" href='#'>Logout</a></li>
         </ul>
       </nav>
     </div>

@@ -11,7 +11,7 @@
   var that = this;
   this.showSeq = null;
   //  this.errorMessage = '';
-   
+
   SequenceService.getSeqObj($stateParams.id)
     .then(function(seqObj) {
       console.log(seqObj);
