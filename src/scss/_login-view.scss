@@ -1,12 +1,12 @@
 .welcome {
-  color: #74A5D6;
+  color: $themeBlue;
   display: none;
   font-family: 'Bitter', serif;
   font-style: italic;
 }
 
 .lgp {
-  color: #74A5D6;
+  color: $themeBlue;
   display:none;
   font-family: 'Bitter', serif;
 }
@@ -48,8 +48,7 @@
   margin-top: 5em;
 }
 .btn {
-  width: 10em;
-  background-color: #F0AAB5;
+  @include btn;
 }
 @media screen and (max-width: $bp-large2){
 
