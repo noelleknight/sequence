@@ -1,6 +1,7 @@
 body {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  text-align: center; }
 
 .list-group {
   position: absolute;
@@ -31,14 +32,17 @@ body {
     margin-left: 10em; } }
 @media screen and (max-width: 1024px) {
   .main-section {
+    margin-bottom: 6em;
     margin-right: 7em;
     margin-left: 7em; } }
 @media screen and (max-width: 712px) {
   .main-section {
+    margin-bottom: 4em;
     margin-right: 6em;
     margin-left: 6em; } }
 @media screen and (max-width: 400px) {
   .main-section {
+    margin-bottom: 3em;
     margin-left: 3em;
     margin-right: 3em; } }
 header {
@@ -88,8 +92,16 @@ header {
 @media screen and (max-width: 400px) {
   header {
     margin-top: -15px; } }
-.or {
-  display: none; }
+.welcome {
+  color: #74A5D6;
+  display: none;
+  font-family: 'Bitter', serif;
+  font-style: italic; }
+
+.lgp {
+  color: #74A5D6;
+  display: none;
+  font-family: 'Bitter', serif; }
 
 #left {
   width: 200px;
@@ -98,7 +110,6 @@ header {
   text-align: center; }
 
 #right {
-  text-align: center;
   width: 200px;
   height: 200px;
   float: right; }
@@ -145,20 +156,22 @@ header {
     display: none; }
 
   #box {
-    width: 90%; }
+    width: 100%; }
 
   #right {
-    text-align: center;
     width: 200px;
     height: 200px;
     float: left; } }
 @media screen and (max-width: 602px) {
-  .or {
-    display: inline-block; }
+  .welcome {
+    display: block;
+    margin-top: 40px; }
+
+  .lgp {
+    display: block; }
 
   .lgForm {
-    margin: 10px;
-    padding-top: 10px;
-    margin-bottom: 20px; } }
+    margin: 5px;
+    padding-top: 5px; } }
 
 /*# sourceMappingURL=main.css.map */

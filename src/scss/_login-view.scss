@@ -1,6 +1,16 @@
-.or {
-  display:none;
+.welcome {
+  color: #74A5D6;
+  display: none;
+  font-family: 'Bitter', serif;
+  font-style: italic;
 }
+
+.lgp {
+  color: #74A5D6;
+  display:none;
+  font-family: 'Bitter', serif;
+}
+
 #left {
     width:200px;
     height:200px;
@@ -9,7 +19,6 @@
 }
 
 #right {
-  text-align: center;
     width:200px;
     height:200px;
     float:right;
@@ -64,22 +73,25 @@
     display: none;
     }
   #box{
-    width: 90%;
+    // left: 10%;
+    width: 100%;
   }
   #right {
-      text-align: center;
       width:200px;
       height:200px;
       float:left;
   }
 }
 @media screen and (max-width: $bp-small2){
-  .or {
-    display:inline-block;
+  .welcome {
+    display: block;
+    margin-top: 40px;
+  }
+.lgp {
+  display:block;
 }
 .lgForm {
-  margin: 10px;
-  padding-top: 10px;
-  margin-bottom: 20px;
+  margin: 5px;
+  padding-top: 5px;
   }
 }

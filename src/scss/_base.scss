@@ -2,6 +2,7 @@
 body {
   margin: 0;
   padding: 0;
+  text-align: center;
 }
 
 .list-group{
@@ -14,38 +15,6 @@ body {
 .showPoses {
   position: relative;;
 }
-// .my-container {
-//     position: relative;
-//     overflow: hidden;
-//     text-align: center;
-//     }
-// .my-container img {
-//     position: relative;
-//     z-index: 2;
-//     left: 0;
-//     top: 0;
-//     width: 100%;
-//     height: auto;
-//     opacity: 0.8;
-// }
-// .lgForm {
-//   margin: 10px;
-//   padding-top: 10px;
-// }
-// .lgInput {
-//   margin-bottom:2em;
-// }
-// .topInput {
-//   margin-top: 5em;
-// }
-// .btn {
-//   width: 10em;
-//   background-color: #F0AAB5;
-// }
-// h1 {
-//   position: absolute;
-//   margin-top:20em;
-// }
 
 .main-section {
   margin-bottom: 10em;
@@ -69,6 +38,7 @@ body {
 }
 @media screen and (max-width: $bp-large){
   .main-section {
+    margin-bottom: 6em;
     margin-right: 7em;
     margin-left: 7em;
 
@@ -76,6 +46,7 @@ body {
 }
 @media screen and (max-width: $bp-medium){
   .main-section {
+    margin-bottom: 4em;
     margin-right: 6em;
     margin-left: 6em;
 
@@ -83,6 +54,7 @@ body {
 }
 @media screen and (max-width: $bp-small){
   .main-section {
+    margin-bottom: 3em;
     margin-left: 3em;
     margin-right: 3em;
   }

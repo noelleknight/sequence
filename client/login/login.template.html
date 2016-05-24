@@ -1,3 +1,5 @@
+
+<h3 class="welcome"> Welcome to Sequence</h3>
 <div id="box">
   <div id="left">
     <form ng-submit='login.loginUser()' class= 'form-group lgForm'>
@@ -5,10 +7,9 @@
       <input class='form-control lgInput' type='password' ng-model='login.loginUser.password' required placeholder='Password'>
       <button class="btn">Login</button>
     </form>
-    <p class="or"> OR </p>
-
+    <h4 class="lgp"> - OR - </h4>
 </div>
-<!-- <p class="or"> OR </p> -->
+
 <div class="divider" ng-hide="login.userCreated()"></div>
 
 <div id="right" ng-hide="login.userCreated()">
