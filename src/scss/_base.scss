@@ -4,18 +4,6 @@ body {
   padding: 0;
 }
 
-// header {
-//   top: 0;
-//   width: 100%;
-//   height: 30%;
-//   margin-top: -40px;
-// }
-// .image {
-//   height: inherit;
-//   z-index: -1;
-//   width: 100%;
-// }
-
 .list-group{
   position: absolute;
   top: 20%;
@@ -26,83 +14,43 @@ body {
 .showPoses {
   position: relative;;
 }
-.my-container {
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-    }
-.my-container img {
-    position: relative;
-    z-index: 2;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: auto;
-    opacity: 0.8;
-}
-#left {
-    width:200px;
-    height:200px;
-    float:left;
-    text-align: center;
-}
-
-#right {
-  text-align: center;
-    width:200px;
-    height:200px;
-    float:right;
-}
-
-#box {
-    left: 20%;
-    position: relative;
-    width:60%;
-    height:20em;
-}
-.divider{
-    position:absolute;
-    left:50%;
-    top:15%;
-    bottom:10%;
-    border-left:1px solid #334746;
-}
-.lgForm {
-  margin: 10px;
-  padding-top: 10px;
-}
-.lgInput {
-  margin-bottom:2em;
-}
-.topInput {
-  margin-top: 5em;
-}
-.btn {
-  width: 10em;
-  background-color: #F0AAB5;
-}
+// .my-container {
+//     position: relative;
+//     overflow: hidden;
+//     text-align: center;
+//     }
+// .my-container img {
+//     position: relative;
+//     z-index: 2;
+//     left: 0;
+//     top: 0;
+//     width: 100%;
+//     height: auto;
+//     opacity: 0.8;
+// }
+// .lgForm {
+//   margin: 10px;
+//   padding-top: 10px;
+// }
+// .lgInput {
+//   margin-bottom:2em;
+// }
+// .topInput {
+//   margin-top: 5em;
+// }
+// .btn {
+//   width: 10em;
+//   background-color: #F0AAB5;
+// }
 // h1 {
 //   position: absolute;
 //   margin-top:20em;
 // }
 
-// .footer{
-//   opacity: .7;
-//   background-color:  #AAF0E5;
-//   position: relative;
-//   clear: both;
-//   p{
-//     position: absolute;
-//     bottom: -45px;
-//     right: 15px;
-//     font-size: 1.2em;
-//   }
-// }
 .main-section {
   margin-bottom: 10em;
   margin-right: 13em;
   margin-left: 13em;
-
 }
 .seqInput{
   width: 200px;
@@ -111,3 +59,31 @@ body {
 .seqPoses{
   text-align: center;
 }
+@media screen and (max-width: $bp-large2){
+  .main-section {
+    margin-bottom: 8em;
+    margin-right: 10em;
+    margin-left: 10em;
+
+  }
+}
+@media screen and (max-width: $bp-large){
+  .main-section {
+    margin-right: 7em;
+    margin-left: 7em;
+
+  }
+}
+@media screen and (max-width: $bp-medium){
+  .main-section {
+    margin-right: 6em;
+    margin-left: 6em;
+
+  }
+}
+@media screen and (max-width: $bp-small){
+  .main-section {
+    margin-left: 3em;
+    margin-right: 3em;
+  }
+};
