@@ -1,0 +1,42 @@
+header {
+  top: 0;
+  width: 100%;
+  height: 30%;
+  margin-top: -40px;
+}
+.image {
+  height: inherit;
+  z-index: -1;
+  width: 100%;
+}
+
+.footer{
+  opacity: .7;
+  background-color:  #AAF0E5;
+  position: relative;
+  clear: both;
+  p{
+    position: absolute;
+    bottom: -45px;
+    right: 15px;
+    font-size: 1.2em;
+  }
+}
+
+@media screen and (max-width: $bp-large){
+  header{
+    height: 35%;
+    margin-top: -35px;
+  }
+}
+@media screen and (max-width: $bp-medium){
+  header{
+    height: 20%;
+    margin-top: -20px;
+  }
+}
+@media screen and (max-width: $bp-small){
+  header{
+    margin-top: -15px;
+  }
+}
