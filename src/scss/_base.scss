@@ -36,6 +36,9 @@ p {
 .ulHover:hover{
   background-color: $themeGreen;
 }
+.seqWelcome {
+  margin: 1em 0 .5em 0;
+}
 @media screen and (max-width: $bp-large2){
   .main-section {
     margin-bottom: 8em;

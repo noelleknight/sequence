@@ -41,6 +41,12 @@ header {
     font-weight: bold;
     font-size: large;
 }
+.navtxt:hover{
+  color: #ec94a2;
+}
+.navtxt:focus{
+  color:$themeBlue;
+}
 
 @media screen and (max-width: $bp-large){
   header{

@@ -32,6 +32,9 @@ p {
 .ulHover:hover {
   background-color: #AAF0E5; }
 
+.seqWelcome {
+  margin: 1em 0 .5em 0; }
+
 @media screen and (max-width: 1060px) {
   .main-section {
     margin-bottom: 8em;
@@ -93,6 +96,12 @@ header {
   color: #ec94a2;
   font-weight: bold;
   font-size: large; }
+
+.navtxt:hover {
+  color: #ec94a2; }
+
+.navtxt:focus {
+  color: #74A5D6; }
 
 @media screen and (max-width: 1024px) {
   header {
@@ -234,5 +243,21 @@ header {
 
 .select-style select:focus {
   outline: none; }
+
+.seqNameHover {
+  cursor: pointer;
+  cursor: hand; }
+  .seqNameHover #heart {
+    color: #ec94a2; }
+
+.seqNameHover:hover {
+  color: #99D8CF;
+  cursor: pointer;
+  cursor: hand; }
+  .seqNameHover:hover #heart {
+    color: #ec94a2; }
+
+#seqList {
+  margin-top: 2em; }
 
 /*# sourceMappingURL=main.css.map */

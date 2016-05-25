@@ -1,0 +1,17 @@
+.seqNameHover{
+  cursor: pointer; cursor: hand;
+  #heart{
+    color: $themePink2;
+  }
+}
+.seqNameHover:hover {
+  color: #99D8CF;
+  cursor: pointer; cursor: hand;
+  #heart{
+    color: $themePink2;
+  }
+}
+
+#seqList{
+  margin-top: 2em;
+}

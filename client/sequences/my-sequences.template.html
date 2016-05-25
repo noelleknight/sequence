@@ -1,8 +1,14 @@
-<div ng-repeat="mySequence in mySeq.mySequences">
-    <h3> {{mySequence.name}}</h3>
+<h3 class="seqWelcome">Sequence List </h3>
+
+<div id="seqList" ng-repeat="mySequence in mySeq.mySequences">
+    <h3 class="seqNameHover" ng-click="mySequence.showDetails = !mySequence.showDetails"><small><span id="heart" class="glyphicon glyphicon-heart" aria-hidden="true"></span></small> {{mySequence.name}}</h3>
     <ul ng-repeat = "pose in mySequence.sequence">
-      <li> {{pose.name}}</li>
-      <li> {{pose.sanskrit}}</li>
+        <li class = "list-group-item allPosts pose-details" ng-show="mySequence.showDetails">
+          <p id="poseNM"> {{pose.name}}</p>
+          <p class= "sanskrit">{{pose.sanskrit}}</p>
+          <p>Type: {{pose.type}}</p>
+          <p>Body Focus: {{pose.bodyFocus}}</p>
+          <p>Difficulty: {{pose.difficulty}}</p>
       </li>
     </ul>
 </div>
