@@ -13,7 +13,8 @@
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-mocha": "^1.0.2"
+    "grunt-mocha": "^1.0.2",
+    "harp": "^0.20.3"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.5",

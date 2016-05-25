@@ -24,6 +24,5 @@
         $state.go('sequence' , {id:ref.key()});
       });
     };
-
   }
 })();
