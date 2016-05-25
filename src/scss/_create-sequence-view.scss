@@ -1,7 +1,6 @@
 .liHover:hover {
  cursor: pointer; cursor: hand;
  background-color: $themeGreen;
-
 }
 
 .seqInput{
@@ -20,27 +19,30 @@
   font-style: italic;
 }
 .select-style {
-    width: 200px;
-    border-radius: 3px;
+    padding: 5px;
     margin: 7px;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
+    width: 225px;
     border-radius: 3px;
     overflow: hidden;
-    background: #fafafa url("img/icon-select.png") no-repeat 90% 50%;
+    background-color: #fff;
+
+    background: #fff url("http://www.scottgood.com/jsg/blog.nsf/images/arrowdown.gif") no-repeat 90% 50%;
 }
 
 .select-style select {
     padding: 5px 8px;
+    // width: 130%;
     border: none;
     box-shadow: none;
-    background: transparent;
+    background-color: transparent;
     background-image: none;
     -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+}
 
-}
-.topbtn{
-  margin-top: 5px;
-}
 .select-style select:focus {
     outline: none;
 }

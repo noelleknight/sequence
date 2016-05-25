@@ -58,13 +58,14 @@ header {
 .navtxt {
    font-size: medium;
  }
+ .footer p {
+   display: none;
+ }
 }
 @media screen and (max-width: $bp-small){
   header{
     margin-top: -15px;
-  }  .navtxt {
   }
-  .footer p {
-    display: none;
+  .navtxt {
   }
 }

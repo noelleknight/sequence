@@ -1,6 +1,22 @@
-<p>{{viewSeq.showSeq.name}}</p>
+<h2 class="seqWelcome">{{viewSeq.showSeq.name}}</h2>
 
-<div ng-repeat="poses in viewSeq.showSeq.sequence">
-{{poses.name}} {{poses.sanskrit}}
+<ul ng-repeat="poses in viewSeq.showSeq.sequence" class="ulHover list-group-item allPosts viewSeq" >
+  <h3>{{poses.name}}</h3>
+  <li class= "sanskrit">{{poses.sanskrit}}</li>
+  <li>Type: {{poses.type}}</li>
+  <li>Body Focus: {{poses.bodyFocus}}</li>
+  <li>Difficulty: {{poses.difficulty}}</li>
 
-</div>
+</ul>
+<!--
+<ul class="list-group poseList">
+  <li class="list-group-item allPosts" ng-repeat="pose in poses.poseList">
+    <h3 ng-click="pose.showDetails = !pose.showDetails">{{pose.name}}</h3>
+      <div class="pose-details" ng-show="pose.showDetails">
+        <p class= "sanskrit">{{pose.sanskrit}}</p>
+        <p>Type: {{pose.type}}</P>
+        <p>Body Focus: {{pose.bodyFocus}}</P>
+        <p>Difficulty: {{pose.difficulty}}</P>
+      </div>
+  </li>
+</ul> -->

@@ -3,28 +3,30 @@
     <article class="seqPage">
     <form class=' form-group' ng-submit='makeSeq.addNewSeq(filteredPoses, makeSeq.name)' Sequences= 'form-group' class='seqForm form-group lgForm'>
         <fieldset>
-          <!-- <label id="seqName" for="name">Make a Sequence</label> -->
           <input class='seqInput form-control' ng-model="makeSeq.name" type="text" name="Sequence Name" placeholder="Sequence name">
         </fieldset>
 
       <fieldset>
-        <!-- <label for="difficultyLevel"> Practice level </label> -->
-        <select class= "select-style" name="difficultyLevel" ng-model="makeSeq.difficultyLevel">
-        <option value="" disabled selected>Choose a practice level</option>
-        <option value="1">Beginner</option>
-        <option value="2">Intermediate</option>
-        <option value="3">Advanced</option>
+        <div class= "select-style">
+          <select name="difficultyLevel" ng-model="makeSeq.difficultyLevel">
+            <option value="" disabled selected>Choose a practice level</option>
+            <option value="1">Beginner</option>
+            <option value="2">Intermediate</option>
+            <option value="3">Advanced</option>
       </select>
-        <!-- <input ng-model="makeSeq.difficulty" type="text" name="difficulty" placeholder="Difficulty"> -->
+    </div>
+
       </fieldset>
       <fieldset>
-         <select class= "select-style" name="focus" ng-model="makeSeq.bodyFocus">
-        <option value="" disabled selected>Choose a body focus</option>
-        <option value="Total">Total</option>
-        <option value="Core">Core</option>
-        <option value="Lower">Lower</option>
-        <option value="Upper">Upper</option>
+        <div class="select-style">
+          <select name="focus" ng-model="makeSeq.bodyFocus">
+            <option value="" disabled selected>Choose a body focus</option>
+            <option value="Total">Total</option>
+            <option value="Core">Core</option>
+            <option value="Lower">Lower</option>
+            <option value="Upper">Upper</option>
       </select>
+    </div>
       </fieldset>
 
       <button class="btn pinkbtn topbtn">Create</button>
@@ -36,8 +38,8 @@
         <li class="list-group-item allPosts liHover" ng-repeat="pose in makeSeq.showPoses | makeSeqFilter:makeSeq.difficultyLevel:makeSeq.bodyFocus as filteredPoses">
           <h3 ng-click="pose.showDetails = !pose.showDetails">{{pose.name}}</h3>
             <div class="pose-details" ng-show="pose.showDetails">
-              <p>{{pose.sanskrit}}</p>
-              <p>Type:{{pose.type}}</P>
+              <p class="sanskrit">{{pose.sanskrit}}</p>
+              <p>Type: {{pose.type}}</P>
               <p>Body Focus: {{pose.bodyFocus}}</P>
               <p>Difficulty: {{pose.difficulty}}</P>
             </div>

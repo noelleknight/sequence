@@ -3,6 +3,9 @@ body {
   padding: 0;
   text-align: center; }
 
+p {
+  font-size: 16px; }
+
 .list-group {
   position: absolute;
   top: 20%; }
@@ -17,6 +20,17 @@ body {
 
 .seqPoses {
   text-align: center; }
+
+.sanskrit {
+  font-family: 'Bitter', serif;
+  font-style: italic;
+  font-size: 18px; }
+
+.viewSeq {
+  list-style: none; }
+
+.ulHover:hover {
+  background-color: #AAF0E5; }
 
 @media screen and (max-width: 1060px) {
   .main-section {
@@ -90,13 +104,13 @@ header {
     margin-top: -20px; } }
 @media screen and (max-width: 602px) {
   .navtxt {
-    font-size: medium; } }
-@media screen and (max-width: 400px) {
-  header {
-    margin-top: -15px; }
+    font-size: medium; }
 
   .footer p {
     display: none; } }
+@media screen and (max-width: 400px) {
+  header {
+    margin-top: -15px; } }
 .welcome {
   color: #74A5D6;
   display: none;
@@ -198,24 +212,25 @@ header {
   font-style: italic; }
 
 .select-style {
-  width: 200px;
-  border-radius: 3px;
+  padding: 5px;
   margin: 7px;
+  margin-bottom: 10px;
   border: 1px solid #ccc;
+  width: 225px;
   border-radius: 3px;
   overflow: hidden;
-  background: #fafafa url("img/icon-select.png") no-repeat 90% 50%; }
+  background-color: #fff;
+  background: #fff url("http://www.scottgood.com/jsg/blog.nsf/images/arrowdown.gif") no-repeat 90% 50%; }
 
 .select-style select {
   padding: 5px 8px;
   border: none;
   box-shadow: none;
-  background: transparent;
+  background-color: transparent;
   background-image: none;
-  -webkit-appearance: none; }
-
-.topbtn {
-  margin-top: 5px; }
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
 
 .select-style select:focus {
   outline: none; }
