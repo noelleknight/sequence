@@ -51,9 +51,6 @@ header {
   height: 30%;
   margin-top: -40px; }
 
-.menu {
-  border: none; }
-
 .image {
   height: inherit;
   z-index: -1;
@@ -84,22 +81,10 @@ header {
     right: 15px;
     font-size: 1.2em; }
 
-.nav-pills > li > a {
-  border-radius: 0px;
-  background-color: white;
-  margin-top: 4px;
-  border: 3px solid #AAF0E5; }
-
-.nav-pills > li > a:hover {
-  border-radius: 0px;
-  background-color: white;
-  margin-top: 0px;
-  border: 3px solid #AAF0E5;
-  border-top: none; }
-
 .navtxt {
-  color: #74A5D6;
-  font-size: medium; }
+  color: #F0AAB5;
+  font-weight: bold;
+  font-size: large; }
 
 @media screen and (max-width: 1024px) {
   header {

@@ -14,23 +14,21 @@
 <body>
 
   <header>
-
-
     <div class="my-container">
      <div class="image">
        <img src="images/handstand.jpg">
-
      <div>
 
       <nav ng-controller="LoginController as login">
-        <ul class="nav nav-pills pull-right">
-          <li class=" menu btn btn-group-lg"><span class="glyphicon glyphicon-menu-hamburger"></span></li>
+        <ul class="nav nav-pills pull-left">
            <!-- <li ng-show="login.isLoggedIn()"><a ui-sref='login'>Login</a></li> -->
           <!-- <li><a ui-sref='createPose'>Create a Pose</a></li>
           <li><a ui-sref='poses'>Poses</a></li> -->
-          <!-- <li ng-show="login.isLoggedIn()"><a class= "navtxt"ui-sref='createSequence'>Make a Sequence</a></li>
+          <li ng-show="login.isLoggedIn()"><a class= "navtxt"ui-sref='createSequence'>Make a Sequence</a></li>
           <li ng-show="login.isLoggedIn()"><a class= "navtxt" ui-sref='mySequences'>My Sequences</a></li>
-          <li ng-show="login.isLoggedIn()"><a class= "navtxt" ng-click ="login.userlogOut()" href='#'>Logout</a></li> -->
+        </ul>
+        <ul class="nav nav-pills pull-right">
+          <li ng-show="login.isLoggedIn()"><a class= "navtxt" ng-click ="login.userlogOut()" href='#'>Logout</a></li>
         </ul>
       </nav>
     </div>
