@@ -60,7 +60,7 @@
     return function makeSeqFilter(input, difficulty, focus){
       return input.filter(function (each){
         var include = true;
-        if  (difficulty > each.difficulty){
+        if  (difficulty < each.difficulty){
           // each is the individual pose,
           include = false;
         }
@@ -279,7 +279,7 @@
 
   SequenceController.$inject = ['$state','PoseService', 'LoginService', 'SequenceService'];
   function SequenceController($state, PoseService, LoginService, SequenceService) {
-    this.difficultyLevel = "";
+    this.difficultyLevel = "4";
     this.bodyFocus = "";
     this.mySequence = {};
     this.showPoses = PoseService.poseList;

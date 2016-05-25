@@ -7,7 +7,7 @@
 
   SequenceController.$inject = ['$state','PoseService', 'LoginService', 'SequenceService'];
   function SequenceController($state, PoseService, LoginService, SequenceService) {
-    this.difficultyLevel = "";
+    this.difficultyLevel = "4";
     this.bodyFocus = "";
     this.mySequence = {};
     this.showPoses = PoseService.poseList;
