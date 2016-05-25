@@ -19,6 +19,7 @@ header {
     z-index: 2;
     left: 0;
     top: 0;
+    right: 0;
     width: 100%;
     height: auto;
     opacity: 0.8;
@@ -36,7 +37,7 @@ header {
   }
 }
   .navtxt {
-    color: $themePink;
+    color: #ec94a2;
     font-weight: bold;
     font-size: large;
 }
@@ -53,8 +54,17 @@ header {
     margin-top: -20px;
   }
 }
+@media screen and (max-width: $bp-small2){
+.navtxt {
+   font-size: medium;
+ }
+}
 @media screen and (max-width: $bp-small){
   header{
     margin-top: -15px;
+  }  .navtxt {
+  }
+  .footer p {
+    display: none;
   }
 }

@@ -78,26 +78,6 @@
 
   angular
   .module('app')
-  .filter('mySeqFilter', function(){
-    return function mySeqFilter(input, id){
-      return input.filter(function (each){
-
-        var include = false;
-        if  (id === each.userId){
-          // each is the individual pose,
-          include = true;
-        }
-        return include;
-      });
-    };
-  });
-
-})();
-;(function() {
-  'use strict';
-
-  angular
-  .module('app')
   .controller('LoginController', LoginController);
 
   LoginController.$inject = ['$state','LoginService'];
@@ -305,10 +285,18 @@
     this.showPoses = PoseService.poseList;
     this.name = null;
 
+
+
+
     this.addNewSeq = function addNewSeq(newList, input){
       this.mySequence.name = input;
       this.mySequence.sequence = newList;
       this.mySequence.userId = LoginService.getUserID();
+
+      // this.randomSort = function randomSort(randomList){
+      //     this.mySequence.sequence = randomList;
+      //     return Math.random();
+      // };
 
       var p = SequenceService.createSequence(this.mySequence);
       p.then( function seqView (ref){

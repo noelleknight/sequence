@@ -7,9 +7,6 @@ body {
   position: absolute;
   top: 20%; }
 
-.seqPage {
-  position: relative; }
-
 .showPoses {
   position: relative; }
 
@@ -17,10 +14,6 @@ body {
   margin-bottom: 10em;
   margin-right: 13em;
   margin-left: 13em; }
-
-.seqInput {
-  width: 200px;
-  margin-bottom: 1em; }
 
 .seqPoses {
   text-align: center; }
@@ -66,6 +59,7 @@ header {
   z-index: 2;
   left: 0;
   top: 0;
+  right: 0;
   width: 100%;
   height: auto;
   opacity: 0.8; }
@@ -82,7 +76,7 @@ header {
     font-size: 1.2em; }
 
 .navtxt {
-  color: #F0AAB5;
+  color: #ec94a2;
   font-weight: bold;
   font-size: large; }
 
@@ -94,9 +88,15 @@ header {
   header {
     height: 20%;
     margin-top: -20px; } }
+@media screen and (max-width: 602px) {
+  .navtxt {
+    font-size: medium; } }
 @media screen and (max-width: 400px) {
   header {
-    margin-top: -15px; } }
+    margin-top: -15px; }
+
+  .footer p {
+    display: none; } }
 .welcome {
   color: #74A5D6;
   display: none;
@@ -178,5 +178,46 @@ header {
   .lgForm {
     margin: 5px;
     padding-top: 5px; } }
+.liHover:hover {
+  cursor: pointer;
+  cursor: hand;
+  background-color: #AAF0E5; }
+
+.seqInput {
+  margin-bottom: 1em; }
+
+.seqPage {
+  left: 60%;
+  display: inline-block;
+  text-align: center;
+  padding-top: 2em; }
+
+.seqWelcome {
+  color: #74A5D6;
+  font-family: 'Bitter', serif;
+  font-style: italic; }
+
+.select-style {
+  width: 200px;
+  border-radius: 3px;
+  margin: 7px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  overflow: hidden;
+  background: #fafafa url("img/icon-select.png") no-repeat 90% 50%; }
+
+.select-style select {
+  padding: 5px 8px;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  background-image: none;
+  -webkit-appearance: none; }
+
+.topbtn {
+  margin-top: 5px; }
+
+.select-style select:focus {
+  outline: none; }
 
 /*# sourceMappingURL=main.css.map */
