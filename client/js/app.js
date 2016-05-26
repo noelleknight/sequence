@@ -296,7 +296,6 @@
         $state.go('sequence' , {id:ref.key()});
       });
     };
-
   }
 })();
 ;(function() {
