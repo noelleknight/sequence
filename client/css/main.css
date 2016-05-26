@@ -48,13 +48,13 @@ p {
 @media screen and (max-width: 712px) {
   .main-section {
     margin-bottom: 4em;
-    margin-right: 0;
-    margin-left: 0; } }
+    margin-right: 6em;
+    margin-left: 6em; } }
 @media screen and (max-width: 400px) {
   .main-section {
     margin-bottom: 3em;
-    margin-left: 0;
-    margin-right: 0; } }
+    margin-left: 3em;
+    margin-right: 3em; } }
 header {
   top: 0;
   width: 100%;
