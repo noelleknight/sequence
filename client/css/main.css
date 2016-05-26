@@ -35,6 +35,17 @@ p {
 .seqWelcome {
   margin: 1em 0 .5em 0; }
 
+#mobileImg {
+  display: none;
+  position: relative;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
+  opacity: 0.8; }
+
 @media screen and (max-width: 1060px) {
   .main-section {
     margin-bottom: 8em;
@@ -71,7 +82,7 @@ header {
   overflow: hidden;
   text-align: center; }
 
-.my-container img {
+#defaultImg {
   position: relative;
   z-index: 2;
   left: 0;
@@ -112,6 +123,12 @@ header {
     height: 20%;
     margin-top: -20px; } }
 @media screen and (max-width: 602px) {
+  #defaultImg {
+    display: none; }
+
+  #mobileImg {
+    display: inline-block; }
+
   .navtxt {
     font-size: medium; }
 

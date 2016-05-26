@@ -39,6 +39,17 @@ p {
 .seqWelcome {
   margin: 1em 0 .5em 0;
 }
+#mobileImg {
+  display:none;
+  position: relative;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
+  opacity: 0.8;
+}
 @media screen and (max-width: $bp-large2){
   .main-section {
     margin-bottom: 8em;

@@ -14,7 +14,7 @@ header {
     overflow: hidden;
     text-align: center;
     }
-.my-container img {
+#defaultImg {
     position: relative;
     z-index: 2;
     left: 0;
@@ -61,6 +61,12 @@ header {
   }
 }
 @media screen and (max-width: $bp-small2){
+  #defaultImg {
+    display: none;
+  }
+  #mobileImg {
+    display: inline-block;
+  }
 .navtxt {
    font-size: medium;
  }
