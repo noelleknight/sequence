@@ -167,7 +167,8 @@ header {
 
 .btn {
   width: 10em;
-  background-color: #F0AAB5; }
+  background-color: #F0AAB5;
+  color: white; }
 
 @media screen and (max-width: 1060px) {
   #box {
