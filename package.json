@@ -5,6 +5,9 @@
   "engines" : {
     "node" : "v4.4.1"
   },
+  "scripts": {
+    "start": "harp server client/ --port $PORT"
+  },
   "dependencies": {
     "angular": "^1.5.5",
     "angular-ui-router": "^0.2.18",
