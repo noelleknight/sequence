@@ -58,15 +58,15 @@ p {
 @media screen and (max-width: $bp-medium){
   .main-section {
     margin-bottom: 4em;
-    margin-right: 6em;
-    margin-left: 6em;
+    margin-right: 0;
+    margin-left: 0;
 
   }
 }
 @media screen and (max-width: $bp-small){
   .main-section {
     margin-bottom: 3em;
-    margin-left: 3em;
-    margin-right: 3em;
+    margin-left: 0;
+    margin-right: 0;
   }
 };
