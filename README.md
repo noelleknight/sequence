@@ -2,7 +2,7 @@
 
 ## An app for for people to create yoga sequences.
 
-![sequence splash image](src/images/handstand.png)
+![sequence splash image](src/images/handstand.jpg)
 
 Sequence is an application that allows users to generate yoga sequences. This was designed as a tool for yoga practitioners and teachers alike.
 
