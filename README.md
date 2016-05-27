@@ -1,7 +1,8 @@
 # sequence
 
-## An app for yogis to build cool sequences.
----
+## An app for for people to create yoga sequences.
+
+![sequence splash image](src/images/handstand.png)
 
 Sequence is an application that allows users to generate yoga sequences. This was designed as a tool for yoga practitioners and teachers alike.
 
@@ -45,12 +46,14 @@ This application was built with the following:
    6. Run grunt from the root directory to update your changes.
 
 Happy coding!
+---
 
 ### Author
 
 Noelle Knight
 
 Get in touch at: <noelle.knight@gmail.com>
+---
 
 ### License
 
