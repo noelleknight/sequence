@@ -1,10 +1,12 @@
 # sequence
 
 ## An app for yogis to build cool sequences.
+---
 
 Sequence is an application that allows users to generate yoga sequences. This was designed as a tool for yoga practitioners and teachers alike.
 
 ## Using sequence
+---
 
 1. Logging in:
    * The sequence app homepage allows users to login or create an account.
@@ -22,6 +24,7 @@ Sequence is an application that allows users to generate yoga sequences. This wa
 The sequence live site can be found [here](https://sequenceapp.herokuapp.com).
 
 ## The sequence stack
+---
 
 This application was built with the following:
 
@@ -32,6 +35,7 @@ This application was built with the following:
   * The testing suite: [Mocha](https://mochajs.com), [Chai](http://chaijs.com), and [Karma](https://karma-runner.github.io/0.13/index.html).
 
 ## Develop sequence
+---
 
    1. Fork it.
    2. Install:[git](https://git-scm.com), [node](https://nodejs.org), and [grunt](https://gruntjs.com).
