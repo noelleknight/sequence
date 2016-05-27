@@ -46,15 +46,15 @@ This application was built with the following:
    6. Run grunt from the root directory to update your changes.
 
 Happy coding!
----
 
 ### Author
+---
 
 Noelle Knight
 
 Get in touch at: <noelle.knight@gmail.com>
----
 
 ### License
+---
 
 MIT
