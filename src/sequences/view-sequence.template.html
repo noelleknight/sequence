@@ -1,6 +1,6 @@
 <h2 class="seqWelcome">{{viewSeq.showSeq.name}}</h2>
 
-<ul ng-repeat="poses in viewSeq.showSeq.sequence" class="ulHover list-group-item allPosts viewSeq" >
+<ul ng-repeat="poses in viewSeq.showSeq.sequence" class="ulHover list-group-item allPosts viewSeq dndLi" draggable="true" >
   <h3>{{poses.name}}</h3>
   <li class= "sanskrit">{{poses.sanskrit}}</li>
   <li>Type: {{poses.type}}</li>

@@ -36,7 +36,7 @@
 
     <div class = "seqPoses">
       <ul class="list-group showPoses">
-        <li class="list-group-item allPosts liHover" ng-repeat="pose in makeSeq.showPoses | makeSeqFilter:makeSeq.difficultyLevel:makeSeq.bodyFocus as filteredPoses | orderBy:makeSeq.randomize(filteredPoses)">
+        <li class="list-group-item allPosts liHover" ng-repeat="pose in makeSeq.showPoses | makeSeqFilter:makeSeq.difficultyLevel:makeSeq.bodyFocus as filteredPoses">
           <h3 ng-click="pose.showDetails = !pose.showDetails">{{pose.name}}</h3>
             <div class="pose-details" ng-show="pose.showDetails">
               <p class="sanskrit">{{pose.sanskrit}}</p>

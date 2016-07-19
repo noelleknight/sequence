@@ -65,7 +65,19 @@ p {
   .main-section {
     margin-bottom: 3em;
     margin-left: 3em;
-    margin-right: 3em; } }
+    margin-right: 3em; }
+
+  [draggable] {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    /* Required to make elements draggable in old WebKit */
+    -khtml-user-drag: element;
+    -webkit-user-drag: element; }
+
+  .dndLi {
+    cursor: move; } }
 header {
   top: 0;
   width: 100%;

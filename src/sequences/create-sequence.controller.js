@@ -23,12 +23,6 @@
       p.then( function seqView (ref){
         $state.go('sequence' , {id:ref.key()});
       });
-      this.randomize = function randomize(){
-        // randomlist= PoseService.poseList;
-        return 0.5 - Math.random();
-
-      };
-      // make showPoses a function that includes randomize
     };
   }
 })();
